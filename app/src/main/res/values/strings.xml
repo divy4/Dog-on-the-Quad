@@ -9,4 +9,8 @@
     <string name="edit_location">Edit Location</string>
     <string name="end_time">End Time:</string>
     <string name="social_level">Social Level:</string>
+    <string name="placeholder_profile_name">Donnie Doggo</string>
+    <string name="placeholder_dog_name">Dexter</string>
+    <string name="placeholder_dog_breed">Border Collie</string>
+    <string name="placeholder_dog_score">10/10</string>
 </resources>
