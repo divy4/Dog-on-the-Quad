@@ -12,18 +12,13 @@ public class Meetup {
 
     public PointF mLocation;
 
-    public int mLengthMinutes;
-    public int mLengthHours;
-
-
     public SocialLevel mSocialLevel;
 
     public Date mEndTime;
 
     public UUID[] mDogs; //have a table of users and a table of dogs, use ID to get dog
     public UUID mUser;
-
-
+    
     public String mPhoto; // TODO figure out how best to store the photo
 }
 
