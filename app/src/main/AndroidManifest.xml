@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateMeetupLocationActivity"></activity>
+        <activity
+            android:name=".CreateMeetupReviewActivity"
+            android:label="@string/create_meetup_review_title"
+            />
     </application>
 
 </manifest>
