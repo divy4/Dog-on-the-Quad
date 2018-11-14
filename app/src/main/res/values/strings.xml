@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Dog on the Quad</string>
+    <string name="back">Back</string>
+    <string name="confirm">Confirm</string>
     <string name="create_meetup_button_label">Create Meetup</string>
+    <string name="create_meetup_review_title">Confirm Meetup</string>
+    <string name="dogs">Dogs:</string>
+    <string name="edit">Edit</string>
+    <string name="edit_location">Edit Location</string>
+    <string name="end_time">End Time:</string>
+    <string name="social_level">Social Level:</string>
 </resources>
