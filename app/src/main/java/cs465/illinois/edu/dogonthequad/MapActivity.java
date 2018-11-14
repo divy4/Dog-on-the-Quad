@@ -31,7 +31,7 @@ public class MapActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if(view.getId() == R.id.create_meetup_button) {
             // Launch the create meetup location activity
-            Intent intent = new Intent(this, CreateMeetupLocation.class);
+            Intent intent = new Intent(this, CreateMeetupLocationActivity.class);
             Meetup meetup = new Meetup();
             String json = new Gson().toJson(meetup);
             Log.d(MEETUP_KEY,"Starting meetup creation, " + json);

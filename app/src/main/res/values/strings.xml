@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dog on the Quad</string>
+    <string name="create_meetup_button_label">Create Meetup</string>
 </resources>

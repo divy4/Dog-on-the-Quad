@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Create Meetup"
+        android:text="@string/create_meetup_button_label"
         android:layout_marginBottom="30dp"
         android:id="@+id/create_meetup_button"/>
 
