@@ -18,5 +18,6 @@ public class CreateMeetupLocationActivity extends Activity {
         String json = i.getStringExtra(MapActivity.MEETUP_KEY);
         Log.d(MapActivity.MEETUP_KEY, "In CreateMeetupLocation, received meetup: " + json);
         Meetup m = new Gson().fromJson(json, Meetup.class);
+
     }
 }
