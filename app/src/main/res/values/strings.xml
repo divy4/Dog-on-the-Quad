@@ -4,9 +4,11 @@
     <string name="confirm">Confirm</string>
     <string name="create_meetup_button_label">Create Meetup</string>
     <string name="create_meetup_review_title">Confirm Meetup</string>
+    <string name="create_meetup_select_dogs_title">Select Dogs</string>
     <string name="dogs">Dogs:</string>
     <string name="edit">Edit</string>
     <string name="edit_location">Edit Location</string>
     <string name="end_time">End Time:</string>
     <string name="social_level">Social Level:</string>
+    <string name="create_meetup_select_dogs_desc">Select which dogs will be with you at the meetup. This will let everyone else know who will be there.</string>
 </resources>
