@@ -8,6 +8,6 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initialize(R.layout.activity_create_meetup_review, null);
+        initialize(R.layout.activity_create_meetup_review);
     }
 }
