@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Dog on the Quad</string>
+    <string name="next">Next</string>
+    <string name="return_to_edit">Confirm Change</string>
     <string name="back">Back</string>
     <string name="confirm">Confirm</string>
     <string name="create_meetup_button_label">Create Meetup</string>

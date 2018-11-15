@@ -16,6 +16,8 @@ public class Meetup {
 
     public Date mEndTime;
 
+    public boolean inReview = false;
+
     public UUID[] mDogs; //have a table of users and a table of dogs, use ID to get dog
     public UUID mUser;
     
