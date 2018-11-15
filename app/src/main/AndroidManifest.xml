@@ -23,6 +23,11 @@
         <activity
             android:name=".CreateMeetupPhotoActivity"
             android:label="@string/create_meetup_photo_title"/>
+        <activity android:name=".CreateMeetupLocationActivity"></activity>
+        <activity
+            android:name=".CreateMeetupReviewActivity"
+            android:label="@string/create_meetup_review_title"
+            />
     </application>
 
 </manifest>
