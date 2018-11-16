@@ -7,17 +7,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-public class CreateMeetupLocationActivity extends Activity {
+import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
+
+public class CreateMeetupLocationActivity extends CreateMeetupActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_meetup_location);
-
-        Intent i = getIntent();
-        String json = i.getStringExtra(MapActivity.MEETUP_KEY);
-        Log.d(MapActivity.MEETUP_KEY, "In CreateMeetupLocation, received meetup: " + json);
-        Meetup m = new Gson().fromJson(json, Meetup.class);
-
+        initialize(R.layout.activity_create_meetup_location, CreateMeetupReviewActivity.class);
     }
 }
+
