@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw"/>
         <activity android:name=".MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +29,11 @@
             android:label="@string/create_meetup_select_dogs_title"/>
         <activity
             android:name=".CreateMeetupPhotoActivity"
-            android:label="@string/create_meetup_photo_title"/>
+            android:label="@string/create_meetup_photo_title" />
         <activity
             android:name=".CreateMeetupReviewActivity"
             android:label="@string/create_meetup_review_title" />
+        <activity android:name=".CreateMeetupEndTimeActivity"></activity>
     </application>
 
 </manifest>

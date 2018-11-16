@@ -2,6 +2,7 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,7 +15,11 @@ public class CreateMeetupLocationActivity extends CreateMeetupActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initialize(R.layout.activity_create_meetup_location, CreateMeetupReviewActivity.class);
+        initialize(R.layout.activity_create_meetup_location);
+
+        mMeetup.mLocation = new PointF(100, 200);
     }
+
+
 }
 
