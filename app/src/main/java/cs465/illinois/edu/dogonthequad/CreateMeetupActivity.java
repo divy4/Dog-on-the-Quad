@@ -18,6 +18,8 @@ import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
 public class CreateMeetupActivity extends Activity implements View.OnClickListener{
 
     public Meetup mMeetup;
+    private Button mNextButton;
+    private boolean mIsNextEnabled;
 
     /**
      * Sets up the CreateMeetupActivity
@@ -34,15 +36,15 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
         mMeetup = new Gson().fromJson(json, Meetup.class);
 
-
+        enableNextButton();
         try {
-            Button nextButton = findViewById(R.id.meetup_next_button);
-            nextButton.setOnClickListener(this);
+            mNextButton = findViewById(R.id.meetup_next_button);
+            mNextButton.setOnClickListener(this);
 
             if (mMeetup.inReview) {
-                nextButton.setText(R.string.return_to_edit);
+                mNextButton.setText(R.string.return_to_edit);
             } else {
-                nextButton.setText(R.string.next);
+                mNextButton.setText(R.string.next);
             }
         } catch (RuntimeException e){
             Log.e(this.getLocalClassName(), "Unable to find nextButton, if this is not the review activity something is wrong");
@@ -56,6 +58,14 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
+    protected void enableNextButton() {
+        mIsNextEnabled = true;
+    }
+
+    protected void disableNextButton() {
+        mIsNextEnabled = false;
+    }
+
     /**
      * Click listen handler for the next button
      * Opens the next activity, or the review activity if the meetup is in a review stage
@@ -63,7 +73,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
      */
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.meetup_next_button){
+        if(mIsNextEnabled && view.getId() == R.id.meetup_next_button){
             Intent intent = new Intent(this, mMeetup.inReview ? CreateMeetupReviewActivity.class : getNextActivity());
             //TODO if returning to the review screen, probably remove this screen and the old review screen. Otherwise, back button behavior will be wonky af
             String json = new Gson().toJson(mMeetup);
