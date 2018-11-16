@@ -6,6 +6,7 @@ import android.graphics.PointF;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class Meetup {
@@ -18,7 +19,7 @@ public class Meetup {
 
     public boolean inReview = false;
 
-    public UUID[] mDogs; //have a table of users and a table of dogs, use ID to get dog
+    public List<UUID> mDogs; //have a table of users and a table of dogs, use ID to get dog
     public UUID mUser;
     
     public String mPhoto; // TODO figure out how best to store the photo
