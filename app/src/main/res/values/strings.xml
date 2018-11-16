@@ -16,4 +16,11 @@
     <string name="next">Next</string>
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
+    <string name="meetup_in_progress">Meetup In Progress</string>
+    <string name="end_meetup">End Meetup</string>
+    <string name="add_time">Add 10 Minutes</string>
+    <string name="edit_settings">Edit Settings</string>
+    <string name="placeholder_num">69</string>
+    <string name="minutes_left">Minutes Left</string>
+    <string name="users_visiting">Users Visiting</string>
 </resources>
