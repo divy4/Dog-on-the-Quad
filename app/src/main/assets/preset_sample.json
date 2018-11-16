@@ -1,0 +1,24 @@
+{
+  "dogs": [
+    {
+      "mId": 0
+    }
+  ],
+  "meetups": [
+    {
+      "lat": 40.104230,
+      "lng": -88.222380,
+      "mSocialLevel": "Low",
+      "mEndTime": "",
+      "inReview": false,
+      "mDogs": [0],
+      "mUser": 0,
+      "mPhoto": "dog-photo"
+    }
+  ],
+  "users": [
+    {
+      "mId": 0
+    }
+  ]
+}
