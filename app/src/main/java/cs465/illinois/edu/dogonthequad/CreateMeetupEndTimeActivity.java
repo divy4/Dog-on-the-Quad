@@ -30,7 +30,6 @@ public class CreateMeetupEndTimeActivity extends CreateMeetupActivity implements
 
     @Override
     public void onTimeChanged(TimePicker timePicker, int i, int i1) {
-        timePicker.
 
     }
 }
