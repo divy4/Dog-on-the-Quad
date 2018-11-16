@@ -21,6 +21,7 @@
             android:name=".CreateMeetupReviewActivity"
             android:label="@string/create_meetup_review_title"
             />
+        <activity android:name=".DogOwnerProfileActivity"/>
     </application>
 
 </manifest>
