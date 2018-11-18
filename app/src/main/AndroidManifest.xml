@@ -23,10 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateMeetupLocationActivity" />
+        <activity
+            android:name=".CreateMeetupSelectDogsActivity"
+            android:label="@string/create_meetup_select_dogs_title"/>
         <activity
             android:name=".CreateMeetupPhotoActivity"
             android:label="@string/create_meetup_photo_title" />
-        <activity android:name=".CreateMeetupLocationActivity" />
         <activity
             android:name=".CreateMeetupReviewActivity"
             android:label="@string/create_meetup_review_title" />
