@@ -1,4 +1,5 @@
 <resources>
+    <string name="add_time">Add 10 Minutes</string>
     <string name="app_name">Dog on the Quad</string>
     <string name="back">Back</string>
     <string name="confirm">Confirm</string>
@@ -9,14 +10,19 @@
     <string name="create_meetup_photo_open_camera">Take photo</string>
     <string name="create_meetup_photo_title">Meetup Photo</string>
     <string name="create_meetup_review_title">Confirm Meetup</string>
+    <string name="create_meetup_select_dogs_desc">Select which dogs will be with you at the meetup. This will let everyone else know who will be there.</string>
     <string name="create_meetup_select_dogs_title">Select Dogs</string>
     <string name="dogs">Dogs:</string>
     <string name="edit">Edit</string>
     <string name="edit_location">Edit Location</string>
+    <string name="edit_settings">Edit Settings</string>
+    <string name="end_meetup">End Meetup</string>
     <string name="end_time">End Time:</string>
+    <string name="meetup_in_progress">Meetup In Progress</string>
+    <string name="minutes_left">Minutes Left</string>
     <string name="next">Next</string>
+    <string name="placeholder_num">69</string>
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
-    <string name="create_meetup_select_dogs_desc">Select which dogs will be with you at the meetup. This will let everyone else know who will be there.</string>
-
+    <string name="users_visiting">Users Visiting</string>
 </resources>
