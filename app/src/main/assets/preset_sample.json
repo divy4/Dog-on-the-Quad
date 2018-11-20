@@ -20,5 +20,8 @@
     {
       "mId": 0
     }
-  ]
+  ],
+  "currentUser": {
+    "mId": 0
+  }
 }
