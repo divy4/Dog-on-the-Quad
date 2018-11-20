@@ -1,7 +1,6 @@
 package cs465.illinois.edu.dogonthequad.DataModels;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -88,7 +87,6 @@ public class API {
         // Get current user id
         JsonPrimitive currentUserMIDJSON = preset.getAsJsonPrimitive(CURRENT_USER_KEY);
         UUID currUserID = gson.fromJson(currentUserMIDJSON, UUID.class);
-//        UUID currUserID = new UUID(0, mID);
         // Get all users and set the current one
         ArrayList<User> users = new ArrayList<>();
         User currentUser = new User();
@@ -107,6 +105,27 @@ public class API {
      */
     public static ArrayList<Dog> getDogs() {
         return currentPreset.getAllDogs();
+    }
+
+    /**
+     * @return Returns all users in current preset
+     */
+    public static ArrayList<User> getUsers() {
+        return currentPreset.getAllUsers();
+    }
+
+    /**
+     * @return Returns all meetups in current preset
+     */
+    public static ArrayList<Meetup> getMeetups() {
+        return currentPreset.getAllMeetups();
+    }
+
+    /**
+     * @return Returns current user in preset
+     */
+    public static User getCurrentUser() {
+        return currentPreset.getCurrentUser();
     }
 
 }
