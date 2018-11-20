@@ -12,10 +12,28 @@ import com.google.gson.Gson;
 
 import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.Vector;
 
 import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
 
 public class CreateMeetupActivity extends Activity implements View.OnClickListener{
+
+    public static final Vector<Class> ACTIVITIES = new Vector(Arrays.asList(
+        CreateMeetupLocationActivity.class,
+        CreateMeetupEndTimeActivity.class,
+        CreateMeetupSelectDogsActivity.class,
+        CreateMeetupPhotoActivity.class,
+        CreateMeetupReviewActivity.class,
+        MeetupInProgressActivity.class
+    ));
+
+    public static final Vector<Class> ACTIVITIES_NOSELECTDOG = new Vector(Arrays.asList(
+        CreateMeetupLocationActivity.class,
+        CreateMeetupEndTimeActivity.class,
+        CreateMeetupPhotoActivity.class,
+        CreateMeetupReviewActivity.class,
+        MeetupInProgressActivity.class
+    ));
 
     public Meetup mMeetup;
     private Button mNextButton;
@@ -52,7 +70,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
         try {
             ProgressBar progressBar = findViewById(R.id.meetup_progress_bar);
-            progressBar.setProgress ((int)(((double)getActivityIndex() + 1) / ((double) getActivityList().length) * 100));
+            progressBar.setProgress(getNextActivityIndex() * 100 / (getActivityList().size() - 1));
         } catch (RuntimeException e){
             Log.e(this.getLocalClassName(), "No progress bar found, cannot set progress");
         }
@@ -74,7 +92,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if(mIsNextEnabled && view.getId() == R.id.meetup_next_button){
-            Intent intent = new Intent(this, mMeetup.inReview ? CreateMeetupReviewActivity.class : getNextActivity());
+            Intent intent = new Intent(this, getNextActivity());
             //TODO if returning to the review screen, probably remove this screen and the old review screen. Otherwise, back button behavior will be wonky af
             String json = new Gson().toJson(mMeetup);
             intent.putExtra(MEETUP_KEY, json);
@@ -83,37 +101,22 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     }
 
-    public static final Class[] ACTIVITIES = new Class[]{
-            CreateMeetupLocationActivity.class,
-            CreateMeetupEndTimeActivity.class,
-            CreateMeetupSelectDogsActivity.class,
-            CreateMeetupPhotoActivity.class,
-            CreateMeetupReviewActivity.class
-    };
-
-    public static final Class[] ACTIVITIES_NOSELECTDOG = new Class[]{
-            CreateMeetupLocationActivity.class,
-            CreateMeetupEndTimeActivity.class,
-            CreateMeetupPhotoActivity.class,
-            CreateMeetupReviewActivity.class
-    };
-
     public Class getNextActivity() {
-        return getActivityList()[getActivityIndex() + 1];
+        return getActivityList().get(getNextActivityIndex());
     }
 
-    public int getActivityIndex() {
+    public int getNextActivityIndex() {
         Class subclass = this.getClass();
-        int index = Arrays.asList(getActivityList()).indexOf(subclass);
+        int index = getActivityList().indexOf(subclass);
 
         if(index == -1){
             Log.e(this.getLocalClassName(), "Unable to find class in classlist");
         }
 
-        return index;
+        return index + 1;
     }
 
-    public Class[] getActivityList() {
+    public Vector<Class> getActivityList() {
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
     }
 }
