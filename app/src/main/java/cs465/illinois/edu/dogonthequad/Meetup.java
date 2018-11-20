@@ -1,6 +1,7 @@
 package cs465.illinois.edu.dogonthequad;
 
 
+import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.PointF;
 
@@ -22,6 +23,6 @@ public class Meetup {
     public List<UUID> mDogs; //have a table of users and a table of dogs, use ID to get dog
     public UUID mUser;
     
-    public String mPhoto; // TODO figure out how best to store the photo
+    public Bitmap mPhoto;
 }
 
