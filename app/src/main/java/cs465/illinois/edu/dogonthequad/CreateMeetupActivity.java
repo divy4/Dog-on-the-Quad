@@ -3,6 +3,7 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.IntentCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -65,8 +66,9 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
                 mNextButton.setText(R.string.next);
             }
         } catch (RuntimeException e){
-            Log.e(this.getLocalClassName(), "Unable to find nextButton, if this is not the review activity something is wrong");
+            mNextButton = findViewById(R.id.confirm_button);
         }
+        mNextButton.setOnClickListener(this);
 
         try {
             ProgressBar progressBar = findViewById(R.id.meetup_progress_bar);
@@ -91,32 +93,46 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
      */
     @Override
     public void onClick(View view) {
-        if(mIsNextEnabled && view.getId() == R.id.meetup_next_button){
-            Intent intent = new Intent(this, getNextActivity());
-            //TODO if returning to the review screen, probably remove this screen and the old review screen. Otherwise, back button behavior will be wonky af
-            String json = new Gson().toJson(mMeetup);
-            intent.putExtra(MEETUP_KEY, json);
-            startActivity(intent);
+        if(mIsNextEnabled && (view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button)) {
+            gotoNextActivity(getNextActivity());
         }
-
     }
 
-    public Class getNextActivity() {
+    private void gotoNextActivity(Class nextActivity) {
+        if (isClearingActivity(nextActivity)) {
+            clearPreviousActivities();
+        }
+        Intent intent = new Intent(this, nextActivity);
+        String json = new Gson().toJson(mMeetup);
+        intent.putExtra(MEETUP_KEY, json);
+        startActivity(intent);
+    }
+
+    private void clearPreviousActivities() {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    private Class getNextActivity() {
         return getActivityList().get(getNextActivityIndex());
     }
 
-    public int getNextActivityIndex() {
+    private boolean isClearingActivity(Class activity) {
+        return activity == MeetupInProgressActivity.class;
+    }
+
+    private int getNextActivityIndex() {
         Class subclass = this.getClass();
         int index = getActivityList().indexOf(subclass);
-
-        if(index == -1){
+        if (index == -1){
             Log.e(this.getLocalClassName(), "Unable to find class in classlist");
         }
-
         return index + 1;
     }
 
-    public Vector<Class> getActivityList() {
+    private Vector<Class> getActivityList() {
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
     }
 }
