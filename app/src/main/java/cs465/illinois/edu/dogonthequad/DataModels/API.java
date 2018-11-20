@@ -1,20 +1,19 @@
 package cs465.illinois.edu.dogonthequad.DataModels;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -34,17 +33,23 @@ public class API {
     private static final String MEETUPS_KEY = "meetups";
     private static final String DOGS_KEY = "dogs";
     private static final String USERS_KEY = "users";
-    private static final String CURRENT_USER_KEY = "currentUser";
+    private static final String CURRENT_USER_KEY = "currentUserID";
 
     /**
      * Called once on application startup to create all presets and ready API for future calls
      */
-    public static void loadData(Context ctx) {
+    public static void loadData(Context ctx) throws IOException, JSONException {
         // load in all preset data here
-
+        presets = new ArrayList<>();
+        ArrayList<String> presetFiles = getPresetFileNames(ctx);
+        for (String presetFile : presetFiles) {
+            DataPreset preset = loadPreset(ctx, presetFile);
+            presets.add(preset);
+        }
+        currentPreset = presets.get(0);
     }
 
-    private ArrayList<String> getPresetFileNames(Context ctx) throws IOException {
+    private static ArrayList<String> getPresetFileNames(Context ctx) throws IOException {
         String[] fileNames = ctx.getAssets().list("");
 
         ArrayList<String> presetNames = new ArrayList<>();
@@ -57,7 +62,7 @@ public class API {
         return presetNames;
     }
 
-    private DataPreset loadPreset(Context ctx, String filename) throws IOException, JSONException {
+    private static DataPreset loadPreset(Context ctx, String filename) throws IOException, JSONException {
         InputStream is = ctx.getAssets().open(filename);
         int size = is.available();
         byte[] buffer = new byte[size];
@@ -81,8 +86,9 @@ public class API {
             dogs.add(gson.fromJson(dogJSON, Dog.class));
         }
         // Get current user id
-        int mID = preset.getAsJsonObject(CURRENT_USER_KEY).getAsInt();
-        UUID currUserID = new UUID(0, mID);
+        JsonPrimitive currentUserMIDJSON = preset.getAsJsonPrimitive(CURRENT_USER_KEY);
+        UUID currUserID = gson.fromJson(currentUserMIDJSON, UUID.class);
+//        UUID currUserID = new UUID(0, mID);
         // Get all users and set the current one
         ArrayList<User> users = new ArrayList<>();
         User currentUser = new User();

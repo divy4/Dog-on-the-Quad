@@ -1,7 +1,7 @@
 {
   "dogs": [
     {
-      "mId": 0
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae"
     }
   ],
   "meetups": [
@@ -9,19 +9,17 @@
       "lat": 40.104230,
       "lng": -88.222380,
       "mSocialLevel": "Low",
-      "mEndTime": "",
+      "mEndTime": "2018-11-12T06:43:19.396Z",
       "inReview": false,
-      "mDogs": [0],
-      "mUser": 0,
+      "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
+      "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
       "mPhoto": "dog-photo"
     }
   ],
   "users": [
     {
-      "mId": 0
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
     }
   ],
-  "currentUser": {
-    "mId": 0
-  }
+  "currentUserID": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
 }
