@@ -2,8 +2,6 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +9,6 @@ import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 
-import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Vector;
 
