@@ -1,6 +1,7 @@
 package cs465.illinois.edu.dogonthequad;
 
 import android.app.Application;
+import android.util.Log;
 
 import org.json.JSONException;
 
@@ -19,9 +20,7 @@ public class DogQuadApplication extends Application {
         try {
             API.loadData(this.getApplicationContext());
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
+            Log.d("TAG", "Can't obtain preset files");
         }
     }
 }

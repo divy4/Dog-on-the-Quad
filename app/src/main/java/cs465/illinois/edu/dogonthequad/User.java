@@ -8,7 +8,7 @@ public class User {
 
     public UUID mId = UUID.randomUUID();
 
-    public UUID getmId() {
+    public UUID getId() {
         return mId;
     }
 

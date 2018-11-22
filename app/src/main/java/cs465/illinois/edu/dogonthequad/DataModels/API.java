@@ -1,6 +1,7 @@
 package cs465.illinois.edu.dogonthequad.DataModels;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -8,8 +9,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
-
-import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,15 +36,32 @@ public class API {
     /**
      * Called once on application startup to create all presets and ready API for future calls
      */
-    public static void loadData(Context ctx) throws IOException, JSONException {
+    public static void loadData(Context ctx) throws IOException {
         // load in all preset data here
         presets = new ArrayList<>();
         ArrayList<String> presetFiles = getPresetFileNames(ctx);
         for (String presetFile : presetFiles) {
-            DataPreset preset = loadPreset(ctx, presetFile);
+            DataPreset preset = generateEmptyPreset();
+            try {
+                preset = loadPreset(ctx, presetFile);
+            } catch (Exception e) {
+                Toast.makeText(ctx, "Error loading preset: " + presetFile + ", defaulting to empty preset", Toast.LENGTH_LONG).show();
+            }
             presets.add(preset);
         }
-        currentPreset = presets.get(0);
+        if (presets.size() > 0) {
+            currentPreset = presets.get(0);
+        } else {
+            currentPreset = generateEmptyPreset();
+        }
+    }
+
+    private static DataPreset generateEmptyPreset() {
+        ArrayList<Dog> dogs = new ArrayList<>();
+        ArrayList<Meetup> meetsup = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
+        User currentUser = new User();
+        return new DataPreset(dogs, users, meetsup, currentUser);
     }
 
     private static ArrayList<String> getPresetFileNames(Context ctx) throws IOException {
@@ -61,7 +77,7 @@ public class API {
         return presetNames;
     }
 
-    private static DataPreset loadPreset(Context ctx, String filename) throws IOException, JSONException {
+    private static DataPreset loadPreset(Context ctx, String filename) throws IOException, IllegalArgumentException {
         InputStream is = ctx.getAssets().open(filename);
         int size = is.available();
         byte[] buffer = new byte[size];
@@ -93,7 +109,7 @@ public class API {
         JsonArray usersJSON = preset.getAsJsonArray(USERS_KEY);
         for (JsonElement userJSON : usersJSON) {
             User user = gson.fromJson(userJSON, User.class);
-            if (user.getmId().equals(currUserID)) {
+            if (user.getId().equals(currUserID)) {
                 currentUser = user;
             }
         }
