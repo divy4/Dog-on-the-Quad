@@ -26,17 +26,11 @@
         app:civ_border="true"
         app:civ_border_color="@color/colorPrimaryDark" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/dog_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/profile_picture" />
-
     <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_below="@id/profile_picture"/>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

@@ -4,57 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/profile_picture"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_centerVertical="true"
-        android:src="@drawable/placeholder_dog_profile"/>
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/profile_picture"
-        android:text="@string/placeholder_dog_name"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/breed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/placeholder_dog_breed"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/breed"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:text="@string/placeholder_dog_score" />
-
     <TextView
         android:id="@+id/badges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/score"
-        android:layout_toEndOf="@id/profile_picture"
         android:textSize="18sp"
         android:textColor="@android:color/black"
         android:text="insert badges here, lol" />
