@@ -53,18 +53,17 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
         mMeetup = new Gson().fromJson(json, Meetup.class);
 
-        try {
-            mBackButton = findViewById(R.id.back_button);
-        } catch (RuntimeException e) {
+        mBackButton = findViewById(R.id.back_button);
+        if (mBackButton == null) {
             mBackButton = findViewById(R.id.cancel_button);
         }
-        mBackButton.setOnClickListener(this);
+        if (mBackButton != null) {
+            mBackButton.setOnClickListener(this);
+        }
 
         enableNextButton();
         try {
             mNextButton = findViewById(R.id.meetup_next_button);
-            mNextButton.setOnClickListener(this);
-
             if (mMeetup.inReview) {
                 mNextButton.setText(R.string.return_to_edit);
             } else {
@@ -100,7 +99,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public void onClick(View view) {
         if(mIsNextEnabled && (view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button)) {
             gotoNextActivity(getNextActivity());
-        } else if (view.getId() == R.id.back_button || view.getId() == R.id.cancel_button) {
+        } else if (view.getId() == R.id.back_button) {
             finish();
         }
     }
@@ -115,7 +114,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         startActivity(intent);
     }
 
-    private void clearPreviousActivities() {
+    protected void clearPreviousActivities() {
         Intent intent = new Intent(this, MapActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

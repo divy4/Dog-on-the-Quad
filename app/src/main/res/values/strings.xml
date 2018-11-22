@@ -2,7 +2,10 @@
     <string name="add_time">Add 10 Minutes</string>
     <string name="app_name">Dog on the Quad</string>
     <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_meetup">Cancel Meetup</string>
     <string name="confirm">Confirm</string>
+    <string name="continue_review">Continue Review</string>
     <string name="create_meetup_button_label">Create Meetup</string>
     <string name="create_meetup_end_time_title">Meetup End Time</string>
     <string name="create_meetup_end_time_desc">Select what time the meetup will end</string>
@@ -25,5 +28,4 @@
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
     <string name="users_visiting">Users Visiting</string>
-    <string name="cancel">Cancel</string>
 </resources>
