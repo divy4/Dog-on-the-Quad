@@ -34,6 +34,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     ));
 
     public Meetup mMeetup;
+    private Button mBackButton;
     private Button mNextButton;
     private boolean mIsNextEnabled;
 
@@ -51,6 +52,13 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         String json = i.getStringExtra(MEETUP_KEY);
         Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
         mMeetup = new Gson().fromJson(json, Meetup.class);
+
+        try {
+            mBackButton = findViewById(R.id.back_button);
+        } catch (RuntimeException e) {
+            mBackButton = findViewById(R.id.cancel_button);
+        }
+        mBackButton.setOnClickListener(this);
 
         enableNextButton();
         try {
@@ -92,6 +100,8 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public void onClick(View view) {
         if(mIsNextEnabled && (view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button)) {
             gotoNextActivity(getNextActivity());
+        } else if (view.getId() == R.id.back_button || view.getId() == R.id.cancel_button) {
+            finish();
         }
     }
 
