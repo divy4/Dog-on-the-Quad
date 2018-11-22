@@ -76,6 +76,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public static final Class[] ACTIVITIES = new Class[]{
             CreateMeetupLocationActivity.class,
             CreateMeetupEndTimeActivity.class,
+            CreateMeetupSocialLevelActivity.class,
             CreateMeetupSelectDogsActivity.class,
             CreateMeetupPhotoActivity.class,
             CreateMeetupReviewActivity.class
@@ -84,6 +85,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public static final Class[] ACTIVITIES_NOSELECTDOG = new Class[]{
             CreateMeetupLocationActivity.class,
             CreateMeetupEndTimeActivity.class,
+            CreateMeetupSocialLevelActivity.class,
             CreateMeetupPhotoActivity.class,
             CreateMeetupReviewActivity.class
     };
