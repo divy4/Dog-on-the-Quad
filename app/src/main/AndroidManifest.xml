@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cs465.illinois.edu.dogonthequad">
 
     <uses-feature
@@ -13,7 +14,8 @@
         android:name=".DogQuadApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw"/>
@@ -36,6 +38,7 @@
             android:label="@string/create_meetup_review_title" />
         <activity android:name=".CreateMeetupEndTimeActivity"></activity>
         <activity android:name=".MeetupInProgressActivity" />
+        <activity android:name=".DogOwnerProfileActivity" />
     </application>
 
 </manifest>
