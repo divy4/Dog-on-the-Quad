@@ -7,8 +7,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_meetup_end_time_title"
-        android:id="@+id/create_meetup_end_time_title"
+        android:text="@string/create_meetup_social_level_title"
+        android:id="@+id/create_meetup_social_level_title"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -17,11 +17,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_meetup_end_time_desc"
-        android:layout_below="@id/create_meetup_end_time_title"
-        android:id="@+id/create_meetup_end_time_desc"
+        android:text="@string/create_meetup_social_level_description"
+        android:layout_below="@id/create_meetup_social_level_title"
+        android:id="@+id/create_meetup_social_level_desc"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radio_group"
+        android:layout_below="@id/create_meetup_social_level_desc">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/low_button"
+            android:text="@string/low"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/medium_button"
+
+            android:text="@string/medium"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/high_button"
+
+            android:text="@string/high"/>
+    </RadioGroup>
 
 
     <LinearLayout
