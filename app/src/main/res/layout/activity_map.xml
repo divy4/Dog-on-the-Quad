@@ -29,5 +29,16 @@
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.MapFragment" />
 
+    <!-- PLACEHOLDER THIS LOOKS LIKE SHT -->
+    <Button
+        android:id="@+id/dog_profile_button"
+        android:text="@string/dog_button_label"
+        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#00000000"/>
+
 
 </RelativeLayout>
