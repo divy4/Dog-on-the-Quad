@@ -28,5 +28,6 @@
     <string name="placeholder_dog_name">Dexter</string>
     <string name="placeholder_dog_breed">Border Collie</string>
     <string name="placeholder_dog_score">10/10</string>
+    <string name="dog_button_label">🐕</string>
     <string name="users_visiting">Users Visiting</string>
 </resources>

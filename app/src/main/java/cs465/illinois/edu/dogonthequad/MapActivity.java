@@ -24,6 +24,8 @@ public class MapActivity extends Activity implements View.OnClickListener {
 
         Button createMeetupButton = (Button) findViewById(R.id.create_meetup_button);
         createMeetupButton.setOnClickListener(this);
+        Button dogProfileButton = (Button) findViewById(R.id.dog_profile_button);
+        dogProfileButton.setOnClickListener(this);
     }
 
 
@@ -36,6 +38,10 @@ public class MapActivity extends Activity implements View.OnClickListener {
             String json = new Gson().toJson(meetup);
             Log.d(MEETUP_KEY,"Starting meetup creation, " + json);
             intent.putExtra(MEETUP_KEY, json);
+            startActivity(intent);
+        } else if (view.getId() == R.id.dog_profile_button) {
+            /* Launch dog profile activity */
+            Intent intent = new Intent(this, DogOwnerProfileActivity.class);
             startActivity(intent);
         }
     }
