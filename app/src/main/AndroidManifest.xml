@@ -18,7 +18,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw"/>
+            android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw" />
+
         <activity android:name=".MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,15 +30,16 @@
         <activity android:name=".CreateMeetupLocationActivity" />
         <activity
             android:name=".CreateMeetupSelectDogsActivity"
-            android:label="@string/create_meetup_select_dogs_title"/>
+            android:label="@string/create_meetup_select_dogs_title" />
         <activity
             android:name=".CreateMeetupPhotoActivity"
             android:label="@string/create_meetup_photo_title" />
         <activity
             android:name=".CreateMeetupReviewActivity"
             android:label="@string/create_meetup_review_title" />
-        <activity android:name=".CreateMeetupEndTimeActivity"></activity>
+        <activity android:name=".CreateMeetupEndTimeActivity" />
         <activity android:name=".MeetupInProgressActivity" />
+        <activity android:name=".CreateMeetupSocialLevelActivity"></activity>
         <activity android:name=".DogOwnerProfileActivity" />
     </application>
 
