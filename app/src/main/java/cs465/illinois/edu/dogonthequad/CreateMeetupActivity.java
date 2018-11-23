@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import java.util.Arrays;
 import java.util.Vector;
 
+import static cs465.illinois.edu.dogonthequad.CreateMeetupPhotoActivity.REQUEST_IMAGE_CAPTURE;
 import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
 
 public class CreateMeetupActivity extends Activity implements View.OnClickListener{
@@ -48,12 +49,8 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     protected void initialize(int resourceId) {
         setContentView(resourceId);
 
-        //all CreateMeetupActivities begin by receiving an intent from the previous activity in the flow
-        //the intent contains a meetup stored as JSON
-        Intent i = getIntent();
-        String json = i.getStringExtra(MEETUP_KEY);
-        Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
-        mMeetup = new Gson().fromJson(json, Meetup.class);
+        // load meetup from previous activity
+        mMeetup = loadMeetup(getIntent());
 
         mBackButton = findViewById(R.id.back_button);
         if (mBackButton == null) {
@@ -100,9 +97,24 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if(mIsNextEnabled && (view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button)) {
-            gotoNextActivity(getNextActivity());
+            if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
+                endActivity();
+            } else {
+                gotoNextActivity(getNextActivity());
+            }
         } else if (view.getId() == R.id.back_button) {
-            finish();
+            if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
+                finish();
+            } else {
+                endActivity();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            mMeetup = loadMeetup(data);
         }
     }
 
@@ -110,10 +122,20 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         if (isClearingActivity(nextActivity)) {
             clearPreviousActivities();
         }
-        Intent intent = new Intent(this, nextActivity);
-        String json = new Gson().toJson(mMeetup);
-        intent.putExtra(MEETUP_KEY, json);
+        gotoActivity(nextActivity);
+    }
+
+    protected void gotoActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        intent = saveMeetup(intent, mMeetup);
         startActivity(intent);
+    }
+
+    protected void endActivity() {
+        Intent result = new Intent();
+        result = saveMeetup(result, mMeetup);
+        setResult(Activity.RESULT_OK, result);
+        finish();
     }
 
     protected void clearPreviousActivities() {
@@ -143,5 +165,17 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     private Vector<Class> getActivityList() {
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
+    }
+
+    private Meetup loadMeetup(Intent i) {
+        String json = i.getStringExtra(MEETUP_KEY);
+        Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
+        return new Gson().fromJson(json, Meetup.class);
+    }
+
+    private Intent saveMeetup(Intent i, Meetup m) {
+        String json = new Gson().toJson(m);
+        i.putExtra(MEETUP_KEY, json);
+        return i;
     }
 }
