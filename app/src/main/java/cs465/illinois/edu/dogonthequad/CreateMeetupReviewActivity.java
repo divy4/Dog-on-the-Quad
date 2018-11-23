@@ -1,13 +1,12 @@
 package cs465.illinois.edu.dogonthequad;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
-public class CreateMeetupReviewActivity extends AppCompatActivity {
+public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_meetup_review);
+        initialize(R.layout.activity_create_meetup_review);
     }
 }
