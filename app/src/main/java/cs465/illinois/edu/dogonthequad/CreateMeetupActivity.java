@@ -19,6 +19,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public static final Vector<Class> ACTIVITIES = new Vector(Arrays.asList(
         CreateMeetupLocationActivity.class,
         CreateMeetupEndTimeActivity.class,
+        CreateMeetupSocialLevelActivity.class,
         CreateMeetupSelectDogsActivity.class,
         CreateMeetupPhotoActivity.class,
         CreateMeetupReviewActivity.class,
@@ -28,6 +29,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public static final Vector<Class> ACTIVITIES_NOSELECTDOG = new Vector(Arrays.asList(
         CreateMeetupLocationActivity.class,
         CreateMeetupEndTimeActivity.class,
+        CreateMeetupSocialLevelActivity.class,
         CreateMeetupPhotoActivity.class,
         CreateMeetupReviewActivity.class,
         MeetupInProgressActivity.class
