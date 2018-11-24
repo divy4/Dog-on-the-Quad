@@ -38,7 +38,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public Meetup mMeetup;
     private Button mBackButton;
     private Button mNextButton;
-    private boolean mIsNextEnabled;
 
     /**
      * Sets up the CreateMeetupActivity
@@ -63,7 +62,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
             mBackButton.setOnClickListener(this);
         }
 
-        enableNextButton();
         try {
             mNextButton = findViewById(R.id.meetup_next_button);
             if (mMeetup.inReview) {
@@ -84,14 +82,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
-    protected void enableNextButton() {
-        mIsNextEnabled = true;
-    }
-
-    protected void disableNextButton() {
-        mIsNextEnabled = false;
-    }
-
     /**
      * Click listen handler for the next button
      * Opens the next activity, or the review activity if the meetup is in a review stage
@@ -99,7 +89,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
      */
     @Override
     public void onClick(View view) {
-        if(mIsNextEnabled && (view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button)) {
+        if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
             gotoNextActivity(getNextActivity());
         } else if (view.getId() == R.id.back_button) {
             finish();

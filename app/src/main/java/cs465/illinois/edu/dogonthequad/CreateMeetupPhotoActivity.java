@@ -14,12 +14,15 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity implements V
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private ImageView mImageView;
+    private Button mNextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_photo);
-        disableNextButton();
+
+        mNextButton = findViewById(R.id.meetup_next_button);
+        mNextButton.setEnabled(false);
 
         mImageView = findViewById(R.id.image_view);
         Button cameraButton = findViewById(R.id.take_photo);
@@ -44,7 +47,7 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity implements V
             Bundle extras = data.getExtras();
             mMeetup.mPhoto = (Bitmap) extras.get("data");
             mImageView.setImageBitmap(mMeetup.mPhoto);
-            enableNextButton();
+            mNextButton.setEnabled(true);
         }
     }
 }
