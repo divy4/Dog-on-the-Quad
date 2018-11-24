@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="center">
 
         <Button
             android:id="@+id/back_button"

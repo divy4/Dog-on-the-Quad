@@ -56,7 +56,7 @@
         android:id="@+id/create_meetup_progress_controls"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="center">
 
         <Button
             android:layout_width="match_parent"
