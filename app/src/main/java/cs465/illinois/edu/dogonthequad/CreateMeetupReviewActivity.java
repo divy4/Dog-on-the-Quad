@@ -46,7 +46,7 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    gotoActivity(activity);
+                    gotoActivity(activity, true);
                 }
             });
         }

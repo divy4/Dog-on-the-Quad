@@ -36,6 +36,8 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         MeetupInProgressActivity.class
     ));
 
+    public static final int REQUEST_EDIT = 1;
+
     public Meetup mMeetup;
     private Button mBackButton;
     private Button mNextButton;
@@ -112,13 +114,17 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         if (isClearingActivity(nextActivity)) {
             clearPreviousActivities();
         }
-        gotoActivity(nextActivity);
+        gotoActivity(nextActivity, false);
     }
 
-    protected void gotoActivity(Class activity) {
+    protected void gotoActivity(Class activity, boolean forResult) {
         Intent intent = new Intent(this, activity);
         intent = saveMeetup(intent, mMeetup);
-        startActivity(intent);
+        if (forResult) {
+            startActivityForResult(intent, REQUEST_EDIT);
+        } else {
+            startActivity(intent);
+        }
     }
 
     protected void endActivity() {
