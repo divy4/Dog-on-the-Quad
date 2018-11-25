@@ -3,11 +3,16 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
 
@@ -25,6 +30,10 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
         CreateMeetupSelectDogsActivity.class
     ));
 
+    TextView mEndTimeText;
+    TextView mSocialLevelText;
+    TextView mDogsText;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_review);
@@ -40,6 +49,40 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
                     gotoActivity(activity);
                 }
             });
+        }
+
+        mEndTimeText = findViewById(R.id.end_time_text);
+        mSocialLevelText = findViewById(R.id.social_level_text);
+        mDogsText = findViewById(R.id.dogs_text);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mMeetup != null) {
+            if (mMeetup.mEndTime != null) {
+                String text = "End Time: " + mMeetup.mEndTime.toString();
+                mEndTimeText.setText(text);
+            }
+            if (mMeetup.mSocialLevel != null) {
+                switch (mMeetup.mSocialLevel) {
+                    case Low:
+                        mSocialLevelText.setText(R.string.social_level_low);
+                        break;
+                    case Medium:
+                        mSocialLevelText.setText(R.string.social_level_medium);
+                        break;
+                    case High:
+                        mSocialLevelText.setText(R.string.social_level_high);
+                        break;
+                }
+            }
+            if (mMeetup.mDogs != null) {
+                // TODO: get real names of dogs
+                List<String> names = mMeetup.mDogs.stream().map(UUID::toString).collect(Collectors.toList());
+                String text = "Dogs:\n" + TextUtils.join("\n ", names);
+                mDogsText.setText(text);
+            }
         }
     }
 
