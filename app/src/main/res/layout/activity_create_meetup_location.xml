@@ -10,7 +10,7 @@
         android:layout_weight="0"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="center">
 
         <Button
             android:id="@+id/back_button"

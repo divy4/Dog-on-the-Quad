@@ -15,6 +15,7 @@
         android:background="@android:color/black"/>
 
     <Button
+        android:id="@+id/edit_location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit_location"/>
@@ -35,6 +36,7 @@
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/edit_end_time_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit"/>
@@ -57,6 +59,7 @@
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/edit_social_level_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit"/>
@@ -88,6 +91,7 @@
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/edit_dogs_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit"/>
@@ -99,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="center">
 
         <Button
             android:id="@+id/cancel_button"

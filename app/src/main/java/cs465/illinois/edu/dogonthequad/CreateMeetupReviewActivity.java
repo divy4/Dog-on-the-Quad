@@ -4,12 +4,43 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import java.util.Arrays;
+import java.util.Vector;
 
 public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
+
+    private static final Vector<Integer> EDIT_BUTTON_IDS = new Vector(Arrays.asList(
+        R.id.edit_location_button,
+        R.id.edit_end_time_button,
+        R.id.edit_social_level_button,
+        R.id.edit_dogs_button
+    ));
+
+    private static final Vector<Class> EDIT_BUTTON_ACTIVITIES = new Vector(Arrays.asList(
+        CreateMeetupLocationActivity.class,
+        CreateMeetupEndTimeActivity.class,
+        CreateMeetupSocialLevelActivity.class,
+        CreateMeetupSelectDogsActivity.class
+    ));
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_review);
+        mMeetup.inReview = true;
+
+        // set edit button listeners
+        for (int i = 0; i < EDIT_BUTTON_IDS.size(); i++) {
+            Button b = findViewById(EDIT_BUTTON_IDS.get(i));
+            final Class activity = EDIT_BUTTON_ACTIVITIES.get(i);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoActivity(activity);
+                }
+            });
+        }
     }
 
     @Override
