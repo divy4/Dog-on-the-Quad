@@ -13,12 +13,13 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 
 import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
 
-public class CreateMeetupLocationActivity extends CreateMeetupActivity implements OnMapReadyCallback {
+public class CreateMeetupLocationActivity extends CreateMeetupActivity implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,29 @@ public class CreateMeetupLocationActivity extends CreateMeetupActivity implement
         LatLng quad = new LatLng(40.107831, -88.227303);
 
         googleMap.addMarker(new MarkerOptions().position(quad)
-                .title("Meetup Location").draggable(true));
+                .title(getString(R.string.create_meetup_location_title)).draggable(true));
+        googleMap.setOnMarkerDragListener(this);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quad, (float) 8.0));
+        googleMap.getUiSettings().setZoomGesturesEnabled(false);
+        googleMap.getUiSettings().setScrollGesturesEnabled(false);
+    }
+
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        if(marker.getTitle().equals(getString(R.string.create_meetup_location_title))){
+            mMeetup.mLocation = marker.getPosition();
+        }
     }
 }
 
