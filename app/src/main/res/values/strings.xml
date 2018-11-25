@@ -9,6 +9,8 @@
     <string name="create_meetup_button_label">Create Meetup</string>
     <string name="create_meetup_end_time_title">Meetup End Time</string>
     <string name="create_meetup_end_time_desc">Select what time the meetup will end</string>
+    <string name="create_meetup_location_title">Meetup Location</string>
+    <string name="create_meetup_location_desc">Drag the pin to set the location for the meetup</string>
     <string name="create_meetup_photo_desc">Try to include landmarks and your dog so that users can easily find you</string>
     <string name="create_meetup_photo_open_camera">Take photo</string>
     <string name="create_meetup_photo_title">Meetup Photo</string>
