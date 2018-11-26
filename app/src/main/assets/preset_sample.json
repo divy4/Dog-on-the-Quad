@@ -6,14 +6,13 @@
   ],
   "meetups": [
     {
-      "lat": 40.104230,
-      "lng": -88.222380,
+      "mLocation" : {"latitude":40.70943264764239,"longitude":-89.18993264436722},
       "mSocialLevel": "Low",
       "mEndTime": "2018-11-12T06:43:19.396Z",
       "inReview": false,
       "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
       "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
-      "mPhoto": "dog-photo"
+      "mPhoto": null
     }
   ],
   "users": [
