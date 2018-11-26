@@ -35,6 +35,9 @@
     <string name="placeholder_num">69</string>
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
+    <string name="social_level_high">Social Level: High</string>
+    <string name="social_level_low">Social Level: Low</string>
+    <string name="social_level_medium">Social Level: Medium</string>
     <string name="placeholder_profile_name">Donnie Doggo</string>
     <string name="placeholder_dog_name">Dexter</string>
     <string name="placeholder_dog_breed">Border Collie</string>
