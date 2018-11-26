@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import cs465.illinois.edu.dogonthequad.DataModels.API;
 import cs465.illinois.edu.dogonthequad.DataModels.Dog;
 
 public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
@@ -37,15 +38,25 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
         mMeetup.mDogs = new ArrayList<UUID>();
     }
 
-    //temporary, should use the active user's list of dogs
+    //temporary, should use the active user's list of mDogs
 
     public List<Dog> GetDogs() {
-        ArrayList<Dog> dogs = new ArrayList<Dog>();
+        ArrayList<Dog> dogs = API.getDogs();
+        User currUser = API.getCurrentUser();
+        ArrayList<Dog> userDogs = new ArrayList<Dog>();
+        for (UUID id : currUser.mDogs) {
+            for (Dog dog : dogs) {
+                if (id.equals(dog.mId)) {
+                    userDogs.add(dog);
+                }
+            }
+        }
+        /*ArrayList<Dog> mDogs = new ArrayList<Dog>();
         Dog d1 = new Dog();
         Dog d2 = new Dog();
-        dogs.add(d1);
-        dogs.add(d2);
-        return dogs;
+        mDogs.add(d1);
+        mDogs.add(d2);*/
+        return userDogs;
     }
 
     private class DogListAdapter extends ArrayAdapter<Dog> implements View.OnClickListener {
@@ -69,7 +80,7 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
             if(listItem == null)
                 listItem = LayoutInflater.from(mContext).inflate(R.layout.select_dog_list_item,parent,false);
             TextView text = listItem.findViewById(R.id.dog_list_name);
-            text.setText(d.mId.toString());
+            text.setText(d.mName.toString());
 
             CheckBox box = listItem.findViewById(R.id.dog_list_checkbox);
             box.setTag(d);

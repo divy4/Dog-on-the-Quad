@@ -1,6 +1,8 @@
 package cs465.illinois.edu.dogonthequad.DataModels;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * DataPreset class contains all information representing the mState of the current application
@@ -34,5 +36,6 @@ public class DataPreset {
     public User getCurrentUser() {
         return currentUser;
     }
+
 
 }

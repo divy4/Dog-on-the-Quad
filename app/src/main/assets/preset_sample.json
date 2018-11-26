@@ -1,7 +1,14 @@
 {
   "dogs": [
     {
-      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae"
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae",
+      "name": "Betty",
+      "badges": ["High Jumper", "Ear Wagger", "Loud Barker"]
+    },
+    {
+      "mId": "1f44f2d2-0662-444e-8c95-d53a593119b4",
+      "name": "Rover",
+      "badges": ["Tail Chaser", "Calm doggo", "sploot"]
     }
   ],
   "meetups": [
@@ -17,7 +24,9 @@
   ],
   "users": [
     {
-      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "name": "Bob",
+      "dogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae", "1f44f2d2-0662-444e-8c95-d53a593119b4"]
     }
   ],
   "currentUserID": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
