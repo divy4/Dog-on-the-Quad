@@ -4,8 +4,12 @@
     package="cs465.illinois.edu.dogonthequad">
 
     <uses-feature
-        android:name="android.hardware.camera"
+        android:name="android.hardware.camera2.full"
         android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA"
+        />
+
 
     <application
         android:allowBackup="true"

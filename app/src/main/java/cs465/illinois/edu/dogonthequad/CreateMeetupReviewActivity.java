@@ -2,9 +2,12 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.Arrays;
 import java.util.Vector;
@@ -41,6 +44,11 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
                 }
             });
         }
+
+        Bitmap bmp = CreateMeetupPhotoActivity.getBitmapFromString(mMeetup.mPhoto);
+        ImageView imageView = findViewById(R.id.image_view);
+        imageView.setImageBitmap(bmp);
+
     }
 
     @Override

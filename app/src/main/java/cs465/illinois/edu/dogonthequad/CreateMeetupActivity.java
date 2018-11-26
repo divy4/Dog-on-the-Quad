@@ -87,17 +87,21 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
-            if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
-                endActivity();
-            } else {
-                gotoNextActivity(getNextActivity());
-            }
+            executeNext();
         } else if (view.getId() == R.id.back_button) {
             if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
                 finish();
             } else {
                 endActivity();
             }
+        }
+    }
+
+    protected void executeNext() {
+        if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
+            endActivity();
+        } else {
+            gotoNextActivity(getNextActivity());
         }
     }
 
