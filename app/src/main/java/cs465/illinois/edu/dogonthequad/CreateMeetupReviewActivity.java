@@ -80,7 +80,7 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
             if (mMeetup.mDogs != null) {
                 // TODO: get real names of dogs
                 List<String> names = mMeetup.mDogs.stream().map(UUID::toString).collect(Collectors.toList());
-                String text = "Dogs:\n" + TextUtils.join("\n ", names);
+                String text = "Dogs: " + TextUtils.join(", ", names);
                 mDogsText.setText(text);
             }
         }

@@ -27,19 +27,18 @@
 
         <TextView
             android:id="@+id/end_time_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/end_time"/>
-
-        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@string/end_time"/>
 
         <Button
             android:id="@+id/edit_end_time_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -51,19 +50,18 @@
 
         <TextView
             android:id="@+id/social_level_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/social_level"/>
-
-        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@string/social_level"/>
 
         <Button
             android:id="@+id/edit_social_level_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -75,19 +73,18 @@
 
         <TextView
             android:id="@+id/dogs_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dogs"/>
-
-        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@string/dogs"/>
 
         <Button
             android:id="@+id/edit_dogs_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:text="@string/edit"/>
 
     </LinearLayout>
