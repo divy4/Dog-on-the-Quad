@@ -22,7 +22,7 @@ public class Meetup {
 
     public boolean inReview = false;
 
-    public List<UUID> mDogs; //have a table of users and a table of dogs, use ID to get dog
+    public List<UUID> mDogs; //have a table of users and a table of mDogs, use ID to get dog
     public UUID mUser;
     
     public Bitmap mPhoto;

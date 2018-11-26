@@ -30,7 +30,7 @@ public class API {
 
     // Static fields to store string value of keys in json preset file
     private static final String MEETUPS_KEY = "meetups";
-    private static final String DOGS_KEY = "dogs";
+    private static final String DOGS_KEY = "mDogs";
     private static final String USERS_KEY = "users";
     private static final String CURRENT_USER_KEY = "currentUserID";
 
@@ -96,7 +96,7 @@ public class API {
         for (JsonElement meetupJSON : meetsupsJSON) {
             meetups.add(gson.fromJson(meetupJSON, Meetup.class));
         }
-        // Get all dogs
+        // Get all mDogs
         ArrayList<Dog> dogs = new ArrayList<>();
         JsonArray dogsJSON = preset.getAsJsonArray(DOGS_KEY);
         for (JsonElement dogJSON : dogsJSON) {
@@ -111,7 +111,7 @@ public class API {
         JsonArray usersJSON = preset.getAsJsonArray(USERS_KEY);
         for (JsonElement userJSON : usersJSON) {
             User user = gson.fromJson(userJSON, User.class);
-            if (user.getId().equals(currUserID)) {
+            if (user.mId.equals(currUserID)) {
                 currentUser = user;
             }
         }
@@ -119,7 +119,7 @@ public class API {
     }
 
     /**
-     * @return Returns all dogs in current preset
+     * @return Returns all mDogs in current preset
      */
     public static ArrayList<Dog> getDogs() {
         return currentPreset.getAllDogs();

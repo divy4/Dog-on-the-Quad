@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
 
+import cs465.illinois.edu.dogonthequad.DataModels.API;
+
 public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
 
     @Override
@@ -42,7 +44,7 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
         mMeetup.mDogs = new ArrayList<UUID>();
     }
 
-    //temporary, should use the active user's list of dogs
+    //temporary, should use the active user's list of mDogs
 
     public List<Dog> GetDogs() {
         ArrayList<Dog> dogs = new ArrayList<Dog>();

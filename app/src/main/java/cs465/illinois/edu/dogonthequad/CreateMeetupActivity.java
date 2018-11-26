@@ -154,7 +154,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     }
 
     private Vector<Class> getActivityList() {
-        return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
+        return ACTIVITIES; //TODO include check for number of mDogs in the current user's profile
     }
 
     private Meetup loadMeetup(Intent i) {
