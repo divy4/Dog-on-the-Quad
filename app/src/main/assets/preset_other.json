@@ -1,0 +1,33 @@
+{
+  "dogs": [
+    {
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae"
+    }
+  ],
+  "meetups": [
+    {
+      "mLocation" : {"latitude":40.107513,"longitude":-88.227210},
+      "mSocialLevel": "Low",
+      "mEndTime": "2018-11-12T06:43:19.396Z",
+      "inReview": false,
+      "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
+      "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "mPhoto": null
+    },
+    {
+      "mLocation" : {"latitude":40.1076,"longitude":-88.227210},
+      "mSocialLevel": "Low",
+      "mEndTime": "2018-11-12T06:43:19.396Z",
+      "inReview": false,
+      "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
+      "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "mPhoto": null
+    }
+  ],
+  "users": [
+    {
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
+    }
+  ],
+  "currentUserID": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
+}
