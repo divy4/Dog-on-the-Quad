@@ -5,18 +5,23 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MeetupInProgressActivity extends Activity {
 
     Meetup mMeetup;
     TextView mMinutesLeft;
     TextView mUsersVisiting;
+    Handler mUpdater;
+    AtomicBoolean mUpdaterIsEnabled;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,22 @@ public class MeetupInProgressActivity extends Activity {
 
         Button endMeetup = findViewById(R.id.end_meetup);
         endMeetup.setOnClickListener((v) -> endMeetup());
+
+        mUpdater = new Handler();
+        mUpdaterIsEnabled = new AtomicBoolean(false);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mUpdaterIsEnabled.set(true);
+        mUpdater.postDelayed(this::updateLoop, 60000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mUpdaterIsEnabled.set(false);
     }
 
     private void addTime() {
@@ -75,6 +96,13 @@ public class MeetupInProgressActivity extends Activity {
     private void readMeetupFromNextActivity(Intent intent) {
         mMeetup = Util.getMeetupFromIntent(intent);
         updateDisplay();
+    }
+
+    private void updateLoop() {
+        updateDisplay();
+        if (mUpdaterIsEnabled.get()) {
+            mUpdater.postDelayed(this::updateLoop, 60000);
+        }
     }
 
     private void updateDisplay() {
