@@ -5,6 +5,7 @@
     <string name="cancel">Cancel</string>
     <string name="cancel_meetup">Cancel Meetup</string>
     <string name="confirm">Confirm</string>
+    <string name="continue_meetup">Continue Meetup</string>
     <string name="continue_review">Continue Review</string>
     <string name="create_meetup_button_label">Create Meetup</string>
     <string name="create_meetup_end_time_title">Meetup End Time</string>
@@ -32,7 +33,7 @@
     <string name="meetup_in_progress">Meetup In Progress</string>
     <string name="minutes_left">Minutes Left</string>
     <string name="next">Next</string>
-    <string name="placeholder_num">69</string>
+    <string name="placeholder_num">0</string>
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
     <string name="social_level_high">Social Level: High</string>

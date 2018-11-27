@@ -50,7 +50,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         setContentView(resourceId);
 
         // load meetup from previous activity
-        mMeetup = loadMeetup(getIntent());
+        mMeetup = Util.getMeetupFromIntent(getIntent());
 
         mBackButton = findViewById(R.id.back_button);
         if (mBackButton == null) {
@@ -112,7 +112,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            mMeetup = loadMeetup(data);
+            mMeetup = Util.getMeetupFromIntent(data);
         }
     }
 
@@ -125,7 +125,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     protected void gotoActivity(Class activity, boolean forResult) {
         Intent intent = new Intent(this, activity);
-        intent = saveMeetup(intent, mMeetup);
+        intent = Util.addMeetupToIntent(intent, mMeetup);
         if (forResult) {
             startActivityForResult(intent, REQUEST_EDIT);
         } else {
@@ -135,7 +135,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     protected void endActivity() {
         Intent result = new Intent();
-        result = saveMeetup(result, mMeetup);
+        result = Util.addMeetupToIntent(result, mMeetup);
         setResult(Activity.RESULT_OK, result);
         finish();
     }
@@ -167,17 +167,5 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     private Vector<Class> getActivityList() {
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
-    }
-
-    private Meetup loadMeetup(Intent i) {
-        String json = i.getStringExtra(MEETUP_KEY);
-        Log.d(MEETUP_KEY, "In CreateMeetup, received meetup: " + json);
-        return new Gson().fromJson(json, Meetup.class);
-    }
-
-    private Intent saveMeetup(Intent i, Meetup m) {
-        String json = new Gson().toJson(m);
-        i.putExtra(MEETUP_KEY, json);
-        return i;
     }
 }
