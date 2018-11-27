@@ -61,24 +61,18 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
                 } catch (IOException e){
                     //do nothing
                 }
-                builder.setSingleChoiceItems(names.toArray(new String[0]), checkedItem, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // user checked an item
-                        checkedItem = which;
-                    }
+                builder.setSingleChoiceItems(names.toArray(new String[0]), checkedItem, (dialog, which) -> {
+                    // user checked an item
+                    checkedItem = which;
                 });
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // user clicked OK
-                        API.setCurrentPreset(checkedItem);
-                        Intent i = getBaseContext().getPackageManager()
-                                .getLaunchIntentForPackage( getBaseContext().getPackageName() );
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(i);
-                    }
+                builder.setPositiveButton("OK", (dialog, which) -> {
+                    // user clicked OK
+                    API.setCurrentPreset(checkedItem);
+                    Intent i = getBaseContext().getPackageManager()
+                            .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
                 });
                 builder.setNegativeButton("Cancel", null);
 
