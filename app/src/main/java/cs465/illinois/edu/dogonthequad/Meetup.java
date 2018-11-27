@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.PointF;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.UUID;
 
 public class Meetup {
 
-    public PointF mLocation;
+    public LatLng mLocation;
 
     public SocialLevel mSocialLevel;
 

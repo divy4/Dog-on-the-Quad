@@ -31,7 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateMeetupLocationActivity" />
+        <activity android:name=".CreateMeetupLocationActivity"
+            android:label="@string/create_meetup_location_title"/>
         <activity
             android:name=".CreateMeetupSelectDogsActivity"
             android:label="@string/create_meetup_select_dogs_title" />

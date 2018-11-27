@@ -1,6 +1,7 @@
 package cs465.illinois.edu.dogonthequad.DataModels;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -46,6 +47,7 @@ public class API {
                 preset = loadPreset(ctx, presetFile);
             } catch (Exception e) {
                 Toast.makeText(ctx, "Error loading preset: " + presetFile + ", defaulting to empty preset", Toast.LENGTH_LONG).show();
+                Log.e("API", e.getMessage());
             }
             presets.add(preset);
         }
