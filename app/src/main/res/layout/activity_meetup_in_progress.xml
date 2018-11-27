@@ -37,12 +37,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp">
             <TextView
                 android:id="@+id/minutes_left_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textColor="#FFFFFF"
                 android:text="@string/placeholder_num"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -61,12 +63,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginBottom="16dp">
             <TextView
                 android:id="@+id/visitors_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textColor="#FFFFFF"
                 android:text="@string/placeholder_num"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -89,7 +93,9 @@
                 android:id="@+id/edit_settings"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/navbuttonbackground"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#FFC107"
                 android:layout_height="50dp"
                 android:text="@string/edit_settings" />
 
@@ -97,7 +103,9 @@
                 android:id="@+id/add_time"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/navbuttonbackground"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#FFC107"
                 android:layout_height="50dp"
                 android:text="@string/add_time" />
         </LinearLayout>
@@ -108,7 +116,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/navbuttonbackground"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#FFC107"
             android:text="@string/end_meetup" />
 
     </LinearLayout>

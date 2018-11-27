@@ -19,7 +19,7 @@
         android:id="@+id/edit_location_button"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:background="@drawable/navbuttonbackground"
+        android:backgroundTint="#FFC107"
         android:text="@string/edit_location"/>
 
     <LinearLayout
@@ -42,7 +42,7 @@
             android:id="@+id/edit_end_time_button"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:background="@drawable/navbuttonbackground"
+            android:backgroundTint="#CDDC39"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -67,7 +67,7 @@
             android:id="@+id/edit_social_level_button"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:background="@drawable/navbuttonbackground"
+            android:backgroundTint="#CDDC39"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -101,7 +101,7 @@
             android:id="@+id/edit_dogs_button"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:background="@drawable/navbuttonbackground"
+            android:backgroundTint="#CDDC39"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -117,7 +117,7 @@
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/navbuttonbackground"
+            android:backgroundTint="#FFC107"
             android:layout_weight="1"
             android:text="@string/cancel"/>
 
@@ -132,7 +132,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/navbuttonbackground"
+            android:backgroundTint="#FFC107"
             android:layout_weight="1"
             android:id="@+id/confirm_button"
             android:text="@string/confirm"/>
