@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import com.google.gson.Gson;
 
+import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
+
 import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
 
 public class Util {

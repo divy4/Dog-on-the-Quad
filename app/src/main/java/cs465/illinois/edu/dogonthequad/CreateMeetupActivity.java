@@ -7,12 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.google.gson.Gson;
-
 import java.util.Arrays;
 import java.util.Vector;
 
-import static cs465.illinois.edu.dogonthequad.MapActivity.MEETUP_KEY;
+import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
+import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
 public class CreateMeetupActivity extends Activity implements View.OnClickListener{
 
@@ -62,7 +61,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
         try {
             mNextButton = findViewById(R.id.meetup_next_button);
-            if (mMeetup.inReview) {
+            if (mMeetup.mState == MeetupState.edit) {
                 mNextButton.setText(R.string.return_to_edit);
             } else {
                 mNextButton.setText(R.string.next);
@@ -77,7 +76,15 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
         try {
             ProgressBar progressBar = findViewById(R.id.meetup_progress_bar);
-            progressBar.setProgress(getNextActivityIndex() * 100 / (getActivityList().size() - 1));
+            int progress;
+            switch (mMeetup.mState) {
+                case edit:
+                    progress = (getActivityList().size() - 2) * 100 / (getActivityList().size() - 1);
+                    break;
+                default:
+                    progress = getNextActivityIndex() * 100 / (getActivityList().size() - 1);
+            }
+            progressBar.setProgress(progress);
         } catch (RuntimeException e){
             Log.e(this.getLocalClassName(), "No progress bar found, cannot set progress");
         }
@@ -93,19 +100,35 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
             executeNext();
         } else if (view.getId() == R.id.back_button) {
-            if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
-                finish();
-            } else {
-                endActivity();
-            }
+            executeBack();
         }
     }
 
     protected void executeNext() {
-        if (mMeetup.inReview && getClass() != CreateMeetupReviewActivity.class) {
-            endActivity();
-        } else {
-            gotoNextActivity(getNextActivity());
+        switch (mMeetup.mState) {
+            case setup:
+            case review:
+                gotoNextActivity();
+                break;
+            case edit:
+                endActivityWithResult();
+                break;
+            default:
+                throw new RuntimeException("Invalid meetup state!");
+        }
+    }
+
+    protected void executeBack() {
+        switch (mMeetup.mState) {
+            case setup:
+            case review:
+                endActivityWithoutResult();
+                break;
+            case edit:
+                endActivityWithResult();
+                break;
+            default:
+                throw new RuntimeException("Invalid meetup state!");
         }
     }
 
@@ -116,7 +139,8 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
-    private void gotoNextActivity(Class nextActivity) {
+    private void gotoNextActivity() {
+        Class nextActivity = getNextActivity();
         if (isClearingActivity(nextActivity)) {
             clearPreviousActivities();
         }
@@ -124,6 +148,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     }
 
     protected void gotoActivity(Class activity, boolean forResult) {
+        mMeetup.mState = nextState(this.getClass(), activity);
         Intent intent = new Intent(this, activity);
         intent = Util.addMeetupToIntent(intent, mMeetup);
         if (forResult) {
@@ -133,10 +158,14 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
-    protected void endActivity() {
+    protected void endActivityWithResult() {
         Intent result = new Intent();
         result = Util.addMeetupToIntent(result, mMeetup);
         setResult(Activity.RESULT_OK, result);
+        finish();
+    }
+
+    protected void endActivityWithoutResult() {
         finish();
     }
 
@@ -144,7 +173,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         Intent intent = new Intent(this, MapActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-        finish();
+        endActivityWithoutResult();
     }
 
 
@@ -167,5 +196,19 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     private Vector<Class> getActivityList() {
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
+    }
+
+    private MeetupState nextState(Class currActivity, Class nextActivity) {
+        MeetupState state = mMeetup.mState;
+        if (nextActivity == CreateMeetupReviewActivity.class) {
+            state = MeetupState.review;
+        } else if (currActivity == CreateMeetupReviewActivity.class) {
+            if (nextActivity == MeetupInProgressActivity.class) {
+                state = MeetupState.inProgress;
+            } else {
+                state = MeetupState.edit;
+            }
+        }
+        return state;
     }
 }
