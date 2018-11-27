@@ -2,12 +2,8 @@ package cs465.illinois.edu.dogonthequad.DataModels;
 
 import java.util.ArrayList;
 
-import cs465.illinois.edu.dogonthequad.Dog;
-import cs465.illinois.edu.dogonthequad.Meetup;
-import cs465.illinois.edu.dogonthequad.User;
-
 /**
- * DataPreset class contains all information representing the state of the current application
+ * DataPreset class contains all information representing the mState of the current application
  */
 public class DataPreset {
 

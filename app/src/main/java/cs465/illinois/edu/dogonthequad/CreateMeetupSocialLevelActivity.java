@@ -1,8 +1,9 @@
 package cs465.illinois.edu.dogonthequad;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.RadioGroup;
+
+import cs465.illinois.edu.dogonthequad.DataModels.SocialLevel;
 
 public class CreateMeetupSocialLevelActivity extends CreateMeetupActivity implements RadioGroup.OnCheckedChangeListener {
 

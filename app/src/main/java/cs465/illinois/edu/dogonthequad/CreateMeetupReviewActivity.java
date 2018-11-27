@@ -17,6 +17,8 @@ import java.util.UUID;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
+import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
+
 public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
 
     private static final Vector<Integer> EDIT_BUTTON_IDS = new Vector(Arrays.asList(
@@ -40,17 +42,14 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_review);
-        mMeetup.inReview = true;
 
         // set edit button listeners
         for (int i = 0; i < EDIT_BUTTON_IDS.size(); i++) {
             Button b = findViewById(EDIT_BUTTON_IDS.get(i));
             final Class activity = EDIT_BUTTON_ACTIVITIES.get(i);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoActivity(activity, true);
-                }
+            b.setOnClickListener((v) -> {
+                mMeetup.mState = MeetupState.edit;
+                gotoActivity(activity, true);
             });
         }
 

@@ -21,6 +21,8 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import java.util.List;
 
 import cs465.illinois.edu.dogonthequad.DataModels.API;
+import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
+import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
 public class MapActivity extends Activity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -48,6 +50,7 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             // Launch the create meetup location activity
             Intent intent = new Intent(this, CreateMeetupLocationActivity.class);
             Meetup meetup = new Meetup();
+            meetup.mState = MeetupState.setup;
             Util.addMeetupToIntent(intent, meetup);
             startActivity(intent);
         } else if (view.getId() == R.id.profile_picture) {

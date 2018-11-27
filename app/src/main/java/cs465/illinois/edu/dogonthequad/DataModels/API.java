@@ -16,10 +16,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import cs465.illinois.edu.dogonthequad.Dog;
-import cs465.illinois.edu.dogonthequad.Meetup;
-import cs465.illinois.edu.dogonthequad.User;
-
 /**
  * MockAPI static class that we can use to get data as if it was returned by a server
  */
