@@ -6,7 +6,7 @@
   ],
   "meetups": [
     {
-      "mLocation" : {"latitude":40.70943264764239,"longitude":-89.18993264436722},
+      "mLocation" : {"latitude":40.107513,"longitude":-88.227210},
       "mSocialLevel": "Low",
       "mEndTime": "2018-11-12T06:43:19.396Z",
       "inReview": false,
