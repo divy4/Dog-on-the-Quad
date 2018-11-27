@@ -1,6 +1,7 @@
 package cs465.illinois.edu.dogonthequad;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -50,6 +51,8 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_photo);
+
+        requestPermissions(new String[]{Manifest.permission.CAMERA}, 200);
 
         mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         mCameraFacing = CameraCharacteristics.LENS_FACING_BACK;
