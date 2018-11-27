@@ -8,11 +8,12 @@
     android:orientation="vertical"
     tools:context=".CreateMeetupReviewActivity">
 
-    <View
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@android:color/black"/>
+        android:id="@+id/image_view"
+        />
 
     <Button
         android:id="@+id/edit_location_button"

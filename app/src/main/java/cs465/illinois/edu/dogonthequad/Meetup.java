@@ -25,6 +25,6 @@ public class Meetup {
     public List<UUID> mDogs; //have a table of users and a table of dogs, use ID to get dog
     public UUID mUser;
     
-    public Bitmap mPhoto;
+    public String mPhoto;
 }
 
