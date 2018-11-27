@@ -1,11 +1,15 @@
 package cs465.illinois.edu.dogonthequad;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,6 +22,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cs465.illinois.edu.dogonthequad.DataModels.API;
@@ -41,6 +47,47 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Button debugButton = findViewById(R.id.debug_button);
+
+        debugButton.setOnLongClickListener(new View.OnLongClickListener() {
+            int checkedItem = 0;
+
+            @Override
+            public boolean onLongClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MapActivity.this);
+                builder.setTitle("Sneaky Debug Menu");
+                List<String> names = new ArrayList<>();
+                try{
+                    names = API.getPresetFileNames(MapActivity.this);
+                } catch (IOException e){
+                    //do nothing
+                }
+                builder.setSingleChoiceItems(names.toArray(new String[0]), checkedItem, (dialog, which) -> {
+                    // user checked an item
+                    checkedItem = which;
+                });
+
+                builder.setPositiveButton("OK", (dialog, which) -> {
+                    // user clicked OK
+                    API.setCurrentPreset(checkedItem);
+                    Intent i = getBaseContext().getPackageManager()
+                            .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                });
+                builder.setNegativeButton("Cancel", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+
+            }
+
+        });
+
+        // add OK and Cancel buttons
+
     }
 
 
