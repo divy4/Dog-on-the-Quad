@@ -35,9 +35,7 @@ public class MapActivity extends Activity implements View.OnClickListener {
             // Launch the create meetup location activity
             Intent intent = new Intent(this, CreateMeetupLocationActivity.class);
             Meetup meetup = new Meetup();
-            String json = new Gson().toJson(meetup);
-            Log.d(MEETUP_KEY,"Starting meetup creation, " + json);
-            intent.putExtra(MEETUP_KEY, json);
+            Util.addMeetupToIntent(intent, meetup);
             startActivity(intent);
         } else if (view.getId() == R.id.dog_profile_button) {
             /* Launch dog profile activity */
