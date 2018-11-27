@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blackbluewallpaper"
     android:orientation="vertical">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,6 +26,7 @@
             android:id="@+id/meetup_progress_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:text="@string/meetup_in_progress"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -49,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/minutes_left_num"
+                android:textColor="#FFFFFF"
                 android:text="@string/minutes_left"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -72,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/visitors_num"
+                android:textColor="#FFFFFF"
                 android:text="@string/users_visiting"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -85,14 +89,16 @@
                 android:id="@+id/edit_settings"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:background="@drawable/navbuttonbackground"
+                android:layout_height="50dp"
                 android:text="@string/edit_settings" />
 
             <Button
                 android:id="@+id/add_time"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:background="@drawable/navbuttonbackground"
+                android:layout_height="50dp"
                 android:text="@string/add_time" />
         </LinearLayout>
 
@@ -100,8 +106,9 @@
         <Button
             android:id="@+id/end_meetup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/navbuttonbackground"
             android:text="@string/end_meetup" />
 
     </LinearLayout>

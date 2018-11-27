@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/blackbluewallpaper"
     tools:context=".CreateMeetupReviewActivity">
 
     <View
@@ -16,8 +17,9 @@
 
     <Button
         android:id="@+id/edit_location_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/navbuttonbackground"
         android:text="@string/edit_location"/>
 
     <LinearLayout
@@ -26,6 +28,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end_time"/>
@@ -37,8 +40,9 @@
 
         <Button
             android:id="@+id/edit_end_time_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/navbuttonbackground"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -49,6 +53,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/social_level"/>
@@ -60,8 +65,9 @@
 
         <Button
             android:id="@+id/edit_social_level_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/navbuttonbackground"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -72,6 +78,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dogs"/>
@@ -92,15 +99,16 @@
 
         <Button
             android:id="@+id/edit_dogs_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/navbuttonbackground"
             android:text="@string/edit"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="0"
         android:orientation="horizontal"
         android:gravity="center">
@@ -108,7 +116,8 @@
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/navbuttonbackground"
             android:layout_weight="1"
             android:text="@string/cancel"/>
 
@@ -122,7 +131,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/navbuttonbackground"
             android:layout_weight="1"
             android:id="@+id/confirm_button"
             android:text="@string/confirm"/>
