@@ -1,12 +1,10 @@
 package cs465.illinois.edu.dogonthequad;
 
 
-import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Camera;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -33,42 +31,42 @@ import java.util.Collections;
 public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
 
 
-    CameraManager cameraManager;
-    int cameraFacing;
+    CameraManager mCameraManager;
+    int mCameraFacing;
 
-    TextureView.SurfaceTextureListener surfaceTextureListener;
-    Size previewSize;
-    String cameraId;
-    private HandlerThread backgroundThread;
-    private CameraDevice.StateCallback stateCallback;
-    private Handler backgroundHandler;
-    private CameraDevice cameraDevice;
-    private TextureView textureView;
-    private CaptureRequest captureRequest;
-    private CameraCaptureSession cameraCaptureSession;
-    private CaptureRequest.Builder captureRequestBuilder;
+    TextureView.SurfaceTextureListener mSurfaceTextureListener;
+    Size mPreviewSize;
+    String mCameraId;
+    private HandlerThread mBackgroundThread;
+    private CameraDevice.StateCallback mStateCallback;
+    private Handler mBackgroundHandler;
+    private CameraDevice mCameraDevice;
+    private TextureView mTextureView;
+    private CaptureRequest mCaptureRequest;
+    private CameraCaptureSession mCameraCaptureSession;
+    private CaptureRequest.Builder mCaptureRequestBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_photo);
 
-        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        cameraFacing = CameraCharacteristics.LENS_FACING_BACK;
+        mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        mCameraFacing = CameraCharacteristics.LENS_FACING_BACK;
 
         Button captureButton = findViewById(R.id.capture_button);
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bitmap bmp = textureView.getBitmap();
+                Bitmap bmp = mTextureView.getBitmap();
                 String pic = getStringFromBitmap(bmp);
                 mMeetup.mPhoto = pic;
                 executeNext();
             }
         });
 
-        textureView = findViewById(R.id.camera_preview);
-        surfaceTextureListener = new TextureView.SurfaceTextureListener() {
+        mTextureView = findViewById(R.id.camera_preview);
+        mSurfaceTextureListener = new TextureView.SurfaceTextureListener() {
             @Override
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width, int height) {
                 setUpCamera();
@@ -91,24 +89,24 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
             }
         };
 
-        stateCallback = new CameraDevice.StateCallback() {
+        mStateCallback = new CameraDevice.StateCallback() {
 
             @Override
             public void onOpened(CameraDevice cameraDevice) {
-                CreateMeetupPhotoActivity.this.cameraDevice = cameraDevice;
+                CreateMeetupPhotoActivity.this.mCameraDevice = cameraDevice;
                 createPreviewSession();
             }
 
             @Override
             public void onDisconnected(CameraDevice cameraDevice) {
                 cameraDevice.close();
-                CreateMeetupPhotoActivity.this.cameraDevice = null;
+                CreateMeetupPhotoActivity.this.mCameraDevice = null;
             }
 
             @Override
             public void onError(CameraDevice cameraDevice, int error) {
                 cameraDevice.close();
-                CreateMeetupPhotoActivity.this.cameraDevice = null;
+                CreateMeetupPhotoActivity.this.mCameraDevice = null;
             }
         };
 
@@ -116,15 +114,15 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
 
     private void setUpCamera() {
         try {
-            for (String cameraId : cameraManager.getCameraIdList()) {
+            for (String cameraId : mCameraManager.getCameraIdList()) {
                 CameraCharacteristics cameraCharacteristics =
-                        cameraManager.getCameraCharacteristics(cameraId);
+                        mCameraManager.getCameraCharacteristics(cameraId);
                 if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) ==
-                        cameraFacing) {
+                        mCameraFacing) {
                     StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(
                             CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-                    previewSize = streamConfigurationMap.getOutputSizes(SurfaceTexture.class)[0];
-                    this.cameraId = cameraId;
+                    mPreviewSize = streamConfigurationMap.getOutputSizes(SurfaceTexture.class)[0];
+                    this.mCameraId = cameraId;
                 }
             }
         } catch (CameraAccessException e) {
@@ -136,7 +134,7 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
         try {
             if (checkSelfPermission(android.Manifest.permission.CAMERA)
                     == PackageManager.PERMISSION_GRANTED) {
-                cameraManager.openCamera(cameraId, stateCallback, backgroundHandler);
+                mCameraManager.openCamera(mCameraId, mStateCallback, mBackgroundHandler);
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -144,20 +142,20 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
     }
 
     private void openBackgroundThread() {
-        backgroundThread = new HandlerThread("camera_background_thread");
-        backgroundThread.start();
-        backgroundHandler = new Handler(backgroundThread.getLooper());
+        mBackgroundThread = new HandlerThread("camera_background_thread");
+        mBackgroundThread.start();
+        mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         openBackgroundThread();
-        if (textureView.isAvailable()) {
+        if (mTextureView.isAvailable()) {
             setUpCamera();
             openCamera();
         } else {
-            textureView.setSurfaceTextureListener(surfaceTextureListener);
+            mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
         }
     }
 
@@ -169,47 +167,47 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
     }
 
     private void closeCamera() {
-        if (cameraCaptureSession != null) {
-            cameraCaptureSession.close();
-            cameraCaptureSession = null;
+        if (mCameraCaptureSession != null) {
+            mCameraCaptureSession.close();
+            mCameraCaptureSession = null;
         }
 
-        if (cameraDevice != null) {
-            cameraDevice.close();
-            cameraDevice = null;
+        if (mCameraDevice != null) {
+            mCameraDevice.close();
+            mCameraDevice = null;
         }
     }
 
     private void closeBackgroundThread() {
-        if (backgroundHandler != null) {
-            backgroundThread.quitSafely();
-            backgroundThread = null;
-            backgroundHandler = null;
+        if (mBackgroundHandler != null) {
+            mBackgroundThread.quitSafely();
+            mBackgroundThread = null;
+            mBackgroundHandler = null;
         }
     }
 
     private void createPreviewSession() {
         try {
-            SurfaceTexture surfaceTexture = textureView.getSurfaceTexture();
-            surfaceTexture.setDefaultBufferSize(previewSize.getWidth(), previewSize.getHeight());
+            SurfaceTexture surfaceTexture = mTextureView.getSurfaceTexture();
+            surfaceTexture.setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
             Surface previewSurface = new Surface(surfaceTexture);
-            captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-            captureRequestBuilder.addTarget(previewSurface);
+            mCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+            mCaptureRequestBuilder.addTarget(previewSurface);
 
-            cameraDevice.createCaptureSession(Collections.singletonList(previewSurface),
+            mCameraDevice.createCaptureSession(Collections.singletonList(previewSurface),
                     new CameraCaptureSession.StateCallback() {
 
                         @Override
                         public void onConfigured(CameraCaptureSession cameraCaptureSession) {
-                            if (cameraDevice == null) {
+                            if (mCameraDevice == null) {
                                 return;
                             }
 
                             try {
-                                captureRequest = captureRequestBuilder.build();
-                                CreateMeetupPhotoActivity.this.cameraCaptureSession = cameraCaptureSession;
-                                CreateMeetupPhotoActivity.this.cameraCaptureSession.setRepeatingRequest(captureRequest,
-                                        null, backgroundHandler);
+                                mCaptureRequest = mCaptureRequestBuilder.build();
+                                CreateMeetupPhotoActivity.this.mCameraCaptureSession = cameraCaptureSession;
+                                CreateMeetupPhotoActivity.this.mCameraCaptureSession.setRepeatingRequest(mCaptureRequest,
+                                        null, mBackgroundHandler);
                             } catch (CameraAccessException e) {
                                 e.printStackTrace();
                             }
@@ -219,7 +217,7 @@ public class CreateMeetupPhotoActivity extends CreateMeetupActivity {
                         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
 
                         }
-                    }, backgroundHandler);
+                    }, mBackgroundHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
