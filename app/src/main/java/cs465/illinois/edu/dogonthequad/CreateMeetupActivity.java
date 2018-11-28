@@ -61,7 +61,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
         try {
             mNextButton = findViewById(R.id.meetup_next_button);
-            if (mMeetup.mState == MeetupState.edit) {
+            if (mMeetup.mState == MeetupState.setupEdit || mMeetup.mState == MeetupState.setupEdit) {
                 mNextButton.setText(R.string.return_to_edit);
             } else {
                 mNextButton.setText(R.string.next);
@@ -78,7 +78,8 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
             ProgressBar progressBar = findViewById(R.id.meetup_progress_bar);
             int progress;
             switch (mMeetup.mState) {
-                case edit:
+                case setupEdit:
+                case inProgressEdit:
                     progress = (getActivityList().size() - 2) * 100 / (getActivityList().size() - 1);
                     break;
                 default:
@@ -90,11 +91,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
-    /**
-     * Click listen handler for the next button
-     * Opens the next activity, or the review activity if the meetup is in a review stage
-     * @param view the clicked view
-     */
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
@@ -106,11 +102,13 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     protected void executeNext() {
         switch (mMeetup.mState) {
-            case setup:
-            case review:
+            case setupFirstPass:
+            case setupReview:
                 gotoNextActivity();
                 break;
-            case edit:
+            case setupEdit:
+            case inProgressReview:
+            case inProgressEdit:
                 endActivityWithResult();
                 break;
             default:
@@ -120,11 +118,13 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
     protected void executeBack() {
         switch (mMeetup.mState) {
-            case setup:
-            case review:
+            case setupEdit:
+            case setupReview:
+            case inProgressReview:
+            case inProgressEdit:
                 endActivityWithoutResult();
                 break;
-            case edit:
+            case setupFirstPass:
                 endActivityWithResult();
                 break;
             default:
@@ -137,6 +137,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         if (resultCode == RESULT_OK) {
             mMeetup = Util.getMeetupFromIntent(data);
         }
+        mMeetup.mState = getPrevState(mMeetup.mState);
     }
 
     private void gotoNextActivity() {
@@ -148,7 +149,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     }
 
     protected void gotoActivity(Class activity, boolean forResult) {
-        mMeetup.mState = nextState(this.getClass(), activity);
+        mMeetup.mState = getNextState(this.getClass(), activity);
         Intent intent = new Intent(this, activity);
         intent = Util.addMeetupToIntent(intent, mMeetup);
         if (forResult) {
@@ -198,16 +199,33 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         return ACTIVITIES; //TODO include check for number of dogs in the current user's profile
     }
 
-    private MeetupState nextState(Class currActivity, Class nextActivity) {
+    private MeetupState getNextState(Class currActivity, Class nextActivity) {
         MeetupState state = mMeetup.mState;
-        if (nextActivity == CreateMeetupReviewActivity.class) {
-            state = MeetupState.review;
-        } else if (currActivity == CreateMeetupReviewActivity.class) {
-            if (nextActivity == MeetupInProgressActivity.class) {
-                state = MeetupState.inProgress;
+        if (currActivity == CreateMeetupPhotoActivity.class && nextActivity == CreateMeetupReviewActivity.class) {
+            state = MeetupState.setupReview;
+        } else if (currActivity == CreateMeetupReviewActivity.class && nextActivity == MeetupInProgressActivity.class) {
+            state = MeetupState.inProgress;
+        } else if (currActivity == CreateMeetupReviewActivity.class && nextActivity != MeetupInProgressActivity.class) {
+            if (mMeetup.mState == MeetupState.setupReview) {
+                state = MeetupState.setupEdit;
             } else {
-                state = MeetupState.edit;
+                state = MeetupState.inProgressEdit;
             }
+        }
+        return state;
+    }
+
+    private MeetupState getPrevState(MeetupState lastState) {
+        MeetupState state;
+        switch (lastState) {
+            case setupEdit:
+                state = MeetupState.setupReview;
+                break;
+            case inProgressEdit:
+                state = MeetupState.inProgressReview;
+                break;
+            default:
+                state = mMeetup.mState;
         }
         return state;
     }

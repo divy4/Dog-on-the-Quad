@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import cs465.illinois.edu.dogonthequad.DataModels.SocialLevel;
 
-public class Meetup {
+public class Meetup implements Cloneable {
 
     public MeetupState mState;
 

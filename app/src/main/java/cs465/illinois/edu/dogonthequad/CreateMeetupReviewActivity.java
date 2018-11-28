@@ -3,7 +3,6 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -43,12 +42,11 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_review);
 
-        // set edit button listeners
+        // set setupEdit button listeners
         for (int i = 0; i < EDIT_BUTTON_IDS.size(); i++) {
             Button b = findViewById(EDIT_BUTTON_IDS.get(i));
             final Class activity = EDIT_BUTTON_ACTIVITIES.get(i);
             b.setOnClickListener((v) -> {
-                mMeetup.mState = MeetupState.edit;
                 gotoActivity(activity, true);
             });
         }
@@ -94,7 +92,7 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.cancel_button) {
+        if (view.getId() == R.id.cancel_button && mMeetup.mState == MeetupState.setupReview) {
             confirmCancel();
         } else {
             super.onClick(view);

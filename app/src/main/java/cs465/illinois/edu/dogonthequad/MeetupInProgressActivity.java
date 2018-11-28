@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,6 +14,8 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
+import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
+
 
 public class MeetupInProgressActivity extends Activity {
 
@@ -65,7 +68,10 @@ public class MeetupInProgressActivity extends Activity {
     }
 
     private void editSettings() {
-
+        mMeetup.mState = MeetupState.inProgressReview;
+        Intent intent = new Intent(this, CreateMeetupReviewActivity.class);
+        intent = Util.addMeetupToIntent(intent, mMeetup);
+        startActivityForResult(intent, CreateMeetupActivity.REQUEST_EDIT);
     }
 
     private void endMeetup() {
