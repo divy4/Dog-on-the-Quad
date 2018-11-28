@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
 
     public List<Dog> GetDogs() {
         ArrayList<Dog> dogs = API.getDogs();
+        Log.e("asdf", ((Integer) dogs.size()).toString());
         User currUser = API.getCurrentUser();
         ArrayList<Dog> userDogs = new ArrayList<Dog>();
         for (UUID id : currUser.mDogs) {
@@ -52,12 +54,12 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
                 }
             }
         }
-        /*ArrayList<Dog> mDogs = new ArrayList<Dog>();
+        ArrayList<Dog> mDogs = new ArrayList<Dog>();
         Dog d1 = new Dog();
         Dog d2 = new Dog();
         mDogs.add(d1);
-        mDogs.add(d2);*/
-        return userDogs;
+        mDogs.add(d2);
+        return mDogs;
     }
 
     private class DogListAdapter extends ArrayAdapter<Dog> implements View.OnClickListener {
