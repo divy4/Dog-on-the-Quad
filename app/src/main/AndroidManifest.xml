@@ -7,15 +7,13 @@
         android:name="android.hardware.camera2.full"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.CAMERA"
-        />
-
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".DogQuadApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".DogQuadApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -31,8 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateMeetupLocationActivity"
-            android:label="@string/create_meetup_location_title"/>
+        <activity
+            android:name=".CreateMeetupLocationActivity"
+            android:label="@string/create_meetup_location_title" />
         <activity
             android:name=".CreateMeetupSelectDogsActivity"
             android:label="@string/create_meetup_select_dogs_title" />
@@ -44,7 +43,7 @@
             android:label="@string/create_meetup_review_title" />
         <activity android:name=".CreateMeetupEndTimeActivity" />
         <activity android:name=".MeetupInProgressActivity" />
-        <activity android:name=".CreateMeetupSocialLevelActivity"></activity>
+        <activity android:name=".CreateMeetupSocialLevelActivity" />
         <activity android:name=".DogOwnerProfileActivity" />
     </application>
 
