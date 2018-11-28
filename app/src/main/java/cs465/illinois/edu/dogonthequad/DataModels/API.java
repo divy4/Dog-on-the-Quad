@@ -16,10 +16,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import cs465.illinois.edu.dogonthequad.Dog;
-import cs465.illinois.edu.dogonthequad.Meetup;
-import cs465.illinois.edu.dogonthequad.User;
-
 /**
  * MockAPI static class that we can use to get data as if it was returned by a server
  */
@@ -33,6 +29,10 @@ public class API {
     private static final String DOGS_KEY = "dogs";
     private static final String USERS_KEY = "users";
     private static final String CURRENT_USER_KEY = "currentUserID";
+
+    public static void setCurrentPreset(int index) {
+        currentPreset = presets.get(index);
+    }
 
     /**
      * Called once on application startup to create all presets and ready API for future calls
@@ -66,7 +66,7 @@ public class API {
         return new DataPreset(dogs, users, meetsup, currentUser);
     }
 
-    private static ArrayList<String> getPresetFileNames(Context ctx) throws IOException {
+    public static ArrayList<String> getPresetFileNames(Context ctx) throws IOException {
         String[] fileNames = ctx.getAssets().list("");
 
         ArrayList<String> presetNames = new ArrayList<>();

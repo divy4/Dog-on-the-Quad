@@ -2,12 +2,22 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
+import java.util.stream.Collectors;
+
+import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
 public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
 
@@ -25,21 +35,60 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
         CreateMeetupSelectDogsActivity.class
     ));
 
+    TextView mEndTimeText;
+    TextView mSocialLevelText;
+    TextView mDogsText;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_review);
-        mMeetup.inReview = true;
 
         // set edit button listeners
         for (int i = 0; i < EDIT_BUTTON_IDS.size(); i++) {
             Button b = findViewById(EDIT_BUTTON_IDS.get(i));
             final Class activity = EDIT_BUTTON_ACTIVITIES.get(i);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoActivity(activity);
-                }
+            b.setOnClickListener((v) -> {
+                mMeetup.mState = MeetupState.edit;
+                gotoActivity(activity, true);
             });
+        }
+
+        Bitmap bmp = CreateMeetupPhotoActivity.getBitmapFromString(mMeetup.mPhoto);
+        ImageView imageView = findViewById(R.id.image_view);
+        imageView.setImageBitmap(bmp);
+
+        mEndTimeText = findViewById(R.id.end_time_text);
+        mSocialLevelText = findViewById(R.id.social_level_text);
+        mDogsText = findViewById(R.id.dogs_text);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mMeetup != null) {
+            if (mMeetup.mEndTime != null) {
+                String text = "End Time: " + mMeetup.mEndTime.toString();
+                mEndTimeText.setText(text);
+            }
+            if (mMeetup.mSocialLevel != null) {
+                switch (mMeetup.mSocialLevel) {
+                    case Low:
+                        mSocialLevelText.setText(R.string.social_level_low);
+                        break;
+                    case Medium:
+                        mSocialLevelText.setText(R.string.social_level_medium);
+                        break;
+                    case High:
+                        mSocialLevelText.setText(R.string.social_level_high);
+                        break;
+                }
+            }
+            if (mMeetup.mDogs != null) {
+                // TODO: get real names of dogs
+                List<String> names = mMeetup.mDogs.stream().map(UUID::toString).collect(Collectors.toList());
+                String text = "Dogs: " + TextUtils.join(", ", names);
+                mDogsText.setText(text);
+            }
         }
     }
 

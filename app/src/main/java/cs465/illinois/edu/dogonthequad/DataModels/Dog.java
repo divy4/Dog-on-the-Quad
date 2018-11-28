@@ -1,4 +1,4 @@
-package cs465.illinois.edu.dogonthequad;
+package cs465.illinois.edu.dogonthequad.DataModels;
 
 import java.util.UUID;
 
