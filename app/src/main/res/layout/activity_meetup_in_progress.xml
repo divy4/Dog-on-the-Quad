@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blackbluewallpaper"
     android:orientation="vertical">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -95,7 +94,8 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:backgroundTint="#FFC107"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2196F3"
                 android:layout_height="50dp"
                 android:text="@string/edit_settings" />
 
@@ -105,7 +105,8 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
-                android:backgroundTint="#FFC107"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2196F3"
                 android:layout_height="50dp"
                 android:text="@string/add_time" />
         </LinearLayout>
@@ -118,7 +119,8 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:text="@string/end_meetup" />
 
     </LinearLayout>

@@ -4,8 +4,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#0D2655</item>
+        <item name="colorPrimaryDark">#083D68</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">#083D68</item>
     </style>
 
 </resources>

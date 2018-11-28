@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blackbluewallpaper"
     >
 
     <TextView
@@ -51,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:text="@string/back"/>
 
         <ProgressBar
@@ -67,7 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/meetup_next_button"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:text="@string/next"/>
 
     </LinearLayout>

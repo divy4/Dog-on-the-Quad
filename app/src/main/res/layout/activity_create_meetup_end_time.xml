@@ -3,7 +3,6 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/blackbluewallpaper"
     >
 
     <TextView
@@ -28,8 +27,10 @@
         android:layout_centerHorizontal="true"/>
 
     <TimePicker
-        android:headerBackground="#0D2655"
-        android:numbersSelectorColor="#0D2655"
+        android:layout_marginTop="10dp"
+        android:headerBackground="#083D68"
+        android:amPmBackgroundColor="#083D68"
+        android:numbersSelectorColor="#083D68"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/create_meetup_progress_controls"
@@ -49,7 +50,8 @@
             android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/back"/>
 
@@ -64,7 +66,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:id="@+id/meetup_next_button"
             android:text="@string/next"/>

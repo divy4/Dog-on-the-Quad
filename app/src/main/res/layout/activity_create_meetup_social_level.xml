@@ -3,7 +3,6 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/blackbluewallpaper"
     >
 
     <TextView
@@ -31,13 +30,16 @@
 
     <RadioGroup
         android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
         android:id="@+id/radio_group"
         android:layout_below="@id/create_meetup_social_level_desc">
         <RadioButton
+            android:buttonTint="#FFC107"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
             android:id="@+id/low_button"
             android:text="@string/low"/>
 
@@ -45,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
             android:id="@+id/medium_button"
 
             android:text="@string/medium"/>
@@ -52,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
             android:id="@+id/high_button"
 
             android:text="@string/high"/>
@@ -69,7 +73,8 @@
 
         <Button
             android:id="@+id/back_button"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -85,9 +90,10 @@
 
         <Button
             android:layout_width="match_parent"
-            android:backgroundTint="#FFC107"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:id="@+id/meetup_next_button"
             android:text="@string/next"/>
 

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/blackbluewallpaper"
     tools:context=".CreateMeetupSelectDogsActivity">
 
 
@@ -13,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:textColor="#FFFFFF"
-        android:text="Select Dogs"
+        android:text="@string/create_meetup_select_dogs_title"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -51,7 +50,8 @@
             android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/back"/>
 
@@ -66,7 +66,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#FFC107"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:id="@+id/meetup_next_button"
             android:text="@string/next"/>
