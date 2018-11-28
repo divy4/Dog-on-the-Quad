@@ -6,16 +6,20 @@
     <style name="AppThemenobackground" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#083D68</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#083D68</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:background">#083D68</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textColorPrimary">#ddd</item>
+        <item name="android:textColorSecondary">#ddd</item>
+        <item name="android:textColorTertiary">#888</item>
     </style>
 
 

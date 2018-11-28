@@ -5,9 +5,13 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +21,7 @@ import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
 import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
 
-public class MeetupInProgressActivity extends Activity {
+public class MeetupInProgressActivity extends Activity implements OnMapReadyCallback {
 
     Meetup mMeetup;
     TextView mMinutesLeft;
@@ -44,6 +48,10 @@ public class MeetupInProgressActivity extends Activity {
 
         mUpdater = new Handler();
         mUpdaterIsEnabled = new AtomicBoolean(false);
+
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -119,5 +127,10 @@ public class MeetupInProgressActivity extends Activity {
         mMinutesLeft.setText(minutes.toString());
 
         mUsersVisiting.setText("1234");
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mMeetup.mLocation, 17));
     }
 }

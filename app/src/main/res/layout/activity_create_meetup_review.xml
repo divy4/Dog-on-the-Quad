@@ -19,6 +19,7 @@
         android:id="@+id/edit_location_button"
         android:layout_width="150dp"
         android:layout_height="40dp"
+        android:backgroundTint="#2196F3"
         android:text="@string/edit_location"/>
 
     <LinearLayout
@@ -43,6 +44,7 @@
             android:layout_height="40dp"
             android:layout_weight="0"
             android:layout_marginRight="20dp"
+            android:backgroundTint="#2196F3"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -69,6 +71,7 @@
             android:layout_height="40dp"
             android:layout_weight="0"
             android:layout_marginRight="20dp"
+            android:backgroundTint="#2196F3"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -95,6 +98,7 @@
             android:layout_height="40dp"
             android:layout_weight="0"
             android:layout_marginRight="20dp"
+            android:backgroundTint="#2196F3"
             android:text="@string/edit"/>
 
     </LinearLayout>

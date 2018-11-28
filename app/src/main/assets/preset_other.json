@@ -2,12 +2,12 @@
   "dogs": [
     {
       "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae",
-      "name": "Betty",
+      "mName": "Betty",
       "badges": ["High Jumper", "Ear Wagger", "Loud Barker"]
     },
     {
       "mId": "1f44f2d2-0662-444e-8c95-d53a593119b4",
-      "name": "Rover",
+      "mName": "Rover",
       "badges": ["Tail Chaser", "Calm doggo", "sploot"]
     }
   ],
