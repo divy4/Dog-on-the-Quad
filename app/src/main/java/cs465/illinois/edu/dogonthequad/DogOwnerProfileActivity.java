@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import cs465.illinois.edu.dogonthequad.DataModels.API;
+import cs465.illinois.edu.dogonthequad.DataModels.Dog;
 
 public class DogOwnerProfileActivity extends Activity {
 
