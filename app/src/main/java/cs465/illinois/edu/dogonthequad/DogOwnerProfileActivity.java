@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import cs465.illinois.edu.dogonthequad.DataModels.API;
+
 public class DogOwnerProfileActivity extends Activity {
 
     private ExpandableListAdapter listAdapter;
@@ -33,23 +35,12 @@ public class DogOwnerProfileActivity extends Activity {
     }
 
     private void prepareListData() {
+        ArrayList<Dog> dogs = API.getDogs();
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
-
-        listDataHeader.add("Betty");
-        listDataHeader.add("Rover");
-
-        List<String> bettyBadges = new ArrayList<String>();
-        bettyBadges.add("High Jumper");
-        bettyBadges.add("Ear Wagger");
-        bettyBadges.add("Loud Barker");
-
-        List<String> roverBadges = new ArrayList<String>();
-        roverBadges.add("Tail Chaser");
-        roverBadges.add("Calm doggo");
-        roverBadges.add("sploot");
-
-        listDataChild.put(listDataHeader.get(0), bettyBadges); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), roverBadges);
+        for (Dog dog : dogs) {
+            listDataHeader.add(dog.mName);
+            listDataChild.put(dog.mName, dog.badges);
+        }
     }
 }
