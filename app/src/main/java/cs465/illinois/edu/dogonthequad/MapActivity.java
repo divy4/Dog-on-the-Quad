@@ -2,14 +2,11 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -111,7 +108,7 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             // Launch the create meetup location activity
             Intent intent = new Intent(this, CreateMeetupLocationActivity.class);
             Meetup meetup = new Meetup();
-            meetup.mState = MeetupState.setup;
+            meetup.mState = MeetupState.setupFirstPass;
             Util.addMeetupToIntent(intent, meetup);
             startActivity(intent);
         } else if (view.getId() == R.id.profile_picture) {
