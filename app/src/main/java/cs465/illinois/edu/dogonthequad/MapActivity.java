@@ -15,6 +15,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -123,7 +124,7 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
     @Override
     public void onMapReady(GoogleMap googleMap) {
         List<Meetup> meetups = API.getMeetups();
-        LatLng viewLocation = meetups.get(0).mLocation;
+        LatLng viewLocation = API.getCurrentLocation();
 
         Log.d("MapActivity", viewLocation.toString());
 
@@ -131,10 +132,15 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             googleMap.addMarker(new MarkerOptions().position(meetup.mLocation)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_map_icon)))
                     .setTag(meetup);
+
         }
 
+        googleMap.addMarker(new MarkerOptions().position(API.getCurrentLocation())
+                .icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.current_location)));
+
         googleMap.setOnMarkerClickListener(this);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(viewLocation, 18));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(viewLocation, 17));
 
         mMap = googleMap;
     }
@@ -145,6 +151,8 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
         mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
         mMeetupView.setVisibility(View.VISIBLE);
         mCreateMeetupButton.setVisibility(View.GONE);
+
+        TODO: //get the meetup info from the marker tag and fill in appropraitely
         return true;
     }
 }

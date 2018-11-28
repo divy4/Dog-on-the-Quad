@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -144,6 +145,10 @@ public class API {
      */
     public static User getCurrentUser() {
         return currentPreset.getCurrentUser();
+    }
+
+    public static LatLng getCurrentLocation() {
+        return new LatLng(40.1087,-88.2275);
     }
 
 }
