@@ -27,7 +27,7 @@ public class API {
 
     // Static fields to store string value of keys in json preset file
     private static final String MEETUPS_KEY = "meetups";
-    private static final String DOGS_KEY = "mDogs";
+    private static final String DOGS_KEY = "dogs";
     private static final String USERS_KEY = "users";
     private static final String CURRENT_USER_KEY = "currentUserID";
 
