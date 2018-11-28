@@ -37,6 +37,7 @@
             android:label="@string/create_meetup_select_dogs_title" />
         <activity
             android:name=".CreateMeetupPhotoActivity"
+            android:theme="@style/AppThemenobackground"
             android:label="@string/create_meetup_photo_title" />
         <activity
             android:name=".CreateMeetupReviewActivity"

@@ -230,3 +230,11 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         return state;
     }
 }
+
+
+
+
+
+
+
+

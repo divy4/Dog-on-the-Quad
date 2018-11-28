@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="#083D68"
     tools:context=".CreateMeetupPhotoActivity">
 
     <TextView
@@ -29,11 +30,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             />
-
-
     </LinearLayout>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +45,8 @@
             android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/back"/>
 
@@ -63,6 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:id="@+id/capture_button"
             android:text="Capture"/>
 

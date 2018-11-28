@@ -17,8 +17,8 @@
 
     <Button
         android:id="@+id/edit_location_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:text="@string/edit_location"/>
 
     <LinearLayout
@@ -28,6 +28,13 @@
 
         <TextView
             android:id="@+id/end_time_text"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_time"/>
+
+        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -37,9 +44,9 @@
 
         <Button
             android:id="@+id/edit_end_time_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -51,6 +58,13 @@
 
         <TextView
             android:id="@+id/social_level_text"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/social_level"/>
+
+        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,9 +74,9 @@
 
         <Button
             android:id="@+id/edit_social_level_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
             android:text="@string/edit"/>
 
     </LinearLayout>
@@ -74,6 +88,22 @@
 
         <TextView
             android:id="@+id/dogs_text"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dogs"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- This is where each dog is listed-->
+
+        </LinearLayout>
+
+        <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -83,16 +113,16 @@
 
         <Button
             android:id="@+id/edit_dogs_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
             android:text="@string/edit"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="0"
         android:orientation="horizontal"
         android:gravity="center">
@@ -100,7 +130,9 @@
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/cancel"/>
 
@@ -115,7 +147,9 @@
         <Button
             android:id="@+id/confirm_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/confirm"/>
 

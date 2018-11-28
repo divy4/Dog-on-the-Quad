@@ -17,8 +17,10 @@
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2196F3"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/create_meetup_button_label"
