@@ -20,6 +20,7 @@ import java.util.UUID;
 
 import cs465.illinois.edu.dogonthequad.DataModels.API;
 import cs465.illinois.edu.dogonthequad.DataModels.Dog;
+import cs465.illinois.edu.dogonthequad.DataModels.User;
 
 public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
 
