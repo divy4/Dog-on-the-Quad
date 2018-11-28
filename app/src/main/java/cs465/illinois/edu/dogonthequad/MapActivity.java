@@ -148,11 +148,14 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
     @Override
     public boolean onMarkerClick(Marker marker) {
         //Show the dog
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
-        mMeetupView.setVisibility(View.VISIBLE);
-        mCreateMeetupButton.setVisibility(View.GONE);
+        if(marker.getTag() != null){
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
+            mMeetupView.setVisibility(View.VISIBLE);
+            mCreateMeetupButton.setVisibility(View.GONE);
 
-        TODO: //get the meetup info from the marker tag and fill in appropraitely
+            //TODO: //get the meetup info from the marker tag and fill in appropraitely
+        }
+
         return true;
     }
 }
