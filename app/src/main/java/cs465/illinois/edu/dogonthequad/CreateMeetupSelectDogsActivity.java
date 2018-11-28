@@ -32,34 +32,12 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
 
         Button nextButton = (Button) findViewById(R.id.meetup_next_button);
         nextButton.setEnabled(false);
-        DogListAdapter dogAdapter = new DogListAdapter(this, R.layout.select_dog_list_item, GetDogs(), nextButton);
+        DogListAdapter dogAdapter = new DogListAdapter(this, R.layout.select_dog_list_item, API.getDogs(), nextButton);
 
         final ListView dogList = (ListView)findViewById(R.id.DogList);
         dogList.setAdapter(dogAdapter);
 
         mMeetup.mDogs = new ArrayList<UUID>();
-    }
-
-    //temporary, should use the active user's list of mDogs
-
-    public List<Dog> GetDogs() {
-        ArrayList<Dog> dogs = API.getDogs();
-        Log.e("asdf", ((Integer) dogs.size()).toString());
-        User currUser = API.getCurrentUser();
-        ArrayList<Dog> userDogs = new ArrayList<Dog>();
-        for (UUID id : currUser.mDogs) {
-            for (Dog dog : dogs) {
-                if (id.equals(dog.mId)) {
-                    userDogs.add(dog);
-                }
-            }
-        }
-        ArrayList<Dog> mDogs = new ArrayList<Dog>();
-        Dog d1 = new Dog();
-        Dog d2 = new Dog();
-        mDogs.add(d1);
-        mDogs.add(d2);
-        return mDogs;
     }
 
     private class DogListAdapter extends ArrayAdapter<Dog> implements View.OnClickListener {
@@ -83,7 +61,7 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
             if(listItem == null)
                 listItem = LayoutInflater.from(mContext).inflate(R.layout.select_dog_list_item,parent,false);
             TextView text = listItem.findViewById(R.id.dog_list_name);
-            text.setText(d.mName.toString());
+            text.setText(d.mName);
 
             CheckBox box = listItem.findViewById(R.id.dog_list_checkbox);
             box.setTag(d);

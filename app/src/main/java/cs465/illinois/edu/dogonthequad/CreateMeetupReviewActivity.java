@@ -5,17 +5,21 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
+import cs465.illinois.edu.dogonthequad.DataModels.API;
+import cs465.illinois.edu.dogonthequad.DataModels.Dog;
 import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
 public class CreateMeetupReviewActivity extends CreateMeetupActivity implements View.OnClickListener {
@@ -82,8 +86,18 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
                 }
             }
             if (mMeetup.mDogs != null) {
-                // TODO: get real names of dogs
-                List<String> names = mMeetup.mDogs.stream().map(UUID::toString).collect(Collectors.toList());
+                List<String> names = new ArrayList<String>();
+                List<Dog> dogs = API.getDogs();
+                /* TODO: make this not gross, probably refactor into an API function */
+                for (UUID doggoUUID : mMeetup.mDogs) {
+                    Log.d("Review", doggoUUID.toString());
+                    for (Dog doggo : dogs) {
+                        Log.d("Review.", doggo.mId.toString());
+                        if (doggo.mId.equals(doggoUUID)) {
+                            names.add(doggo.mName);
+                        }
+                    }
+                }
                 String text = "Dogs: " + TextUtils.join(", ", names);
                 mDogsText.setText(text);
             }

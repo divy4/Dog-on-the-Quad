@@ -23,7 +23,6 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/profile_picture"
         android:text="@string/placeholder_dog_name"
-        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <TextView
@@ -34,6 +33,5 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="20dp"
         android:text="@string/placeholder_dog_breed"
-        android:textColor="@android:color/black"
         android:textSize="20sp" />
 </RelativeLayout>
