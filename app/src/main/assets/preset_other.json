@@ -1,0 +1,42 @@
+{
+  "dogs": [
+    {
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbae",
+      "mName": "Betty",
+      "badges": ["High Jumper", "Ear Wagger", "Loud Barker"]
+    },
+    {
+      "mId": "1f44f2d2-0662-444e-8c95-d53a593119b4",
+      "mName": "Rover",
+      "badges": ["Tail Chaser", "Calm doggo", "sploot"]
+    }
+  ],
+  "meetups": [
+    {
+      "mLocation" : {"latitude":40.107513,"longitude":-88.227210},
+      "mSocialLevel": "Low",
+      "mEndTime": "2018-11-12T06:43:19.396Z",
+      "inReview": false,
+      "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
+      "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "mPhoto": null
+    },
+    {
+      "mLocation" : {"latitude":40.1076,"longitude":-88.227210},
+      "mSocialLevel": "Low",
+      "mEndTime": "2018-11-12T06:43:19.396Z",
+      "inReview": false,
+      "mDogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae"],
+      "mUser": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "mPhoto": null
+    }
+  ],
+  "users": [
+    {
+      "mId": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf",
+      "name": "Bob",
+      "dogs": ["b69fd9ec-44c6-4fea-a3c5-10499096bbae", "1f44f2d2-0662-444e-8c95-d53a593119b4"]
+    }
+  ],
+  "currentUserID": "b69fd9ec-44c6-4fea-a3c5-10499096bbaf"
+}

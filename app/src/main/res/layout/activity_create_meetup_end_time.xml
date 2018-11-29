@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="@string/create_meetup_end_time_title"
+        android:id="@+id/create_meetup_end_time_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="@string/create_meetup_end_time_desc"
+        android:layout_below="@id/create_meetup_end_time_title"
+        android:id="@+id/create_meetup_end_time_desc"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TimePicker
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/create_meetup_progress_controls"
+        android:layout_below="@id/create_meetup_end_time_desc"
+        android:layout_marginTop="10dp"
+        android:amPmBackgroundColor="#083D68"
+        android:headerBackground="#083D68"
+        android:numbersBackgroundColor="@color/colorPrimaryDark"
+        android:numbersSelectorColor="#083D68" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:id="@+id/create_meetup_progress_controls"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
+            android:layout_weight="1"
+            android:text="@string/back"/>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:id="@+id/meetup_progress_bar"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
+            android:layout_weight="1"
+            android:id="@+id/meetup_next_button"
+            android:text="@string/next"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

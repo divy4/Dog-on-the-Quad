@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cs465.illinois.edu.dogonthequad">
+
+    <uses-feature
+        android:name="android.hardware.camera2.full"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name=".DogQuadApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw" />
+
+        <activity android:name=".MapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CreateMeetupLocationActivity"
+            android:label="@string/create_meetup_location_title" />
+        <activity
+            android:name=".CreateMeetupSelectDogsActivity"
+            android:label="@string/create_meetup_select_dogs_title" />
+        <activity
+            android:name=".CreateMeetupPhotoActivity"
+            android:theme="@style/AppThemenobackground"
+            android:label="@string/create_meetup_photo_title" />
+        <activity
+            android:name=".CreateMeetupReviewActivity"
+            android:label="@string/create_meetup_review_title" />
+        <activity android:name=".CreateMeetupEndTimeActivity" />
+        <activity android:name=".MeetupInProgressActivity" />
+        <activity android:name=".CreateMeetupSocialLevelActivity" />
+        <activity android:name=".DogOwnerProfileActivity" />
+    </application>
+
+</manifest>
