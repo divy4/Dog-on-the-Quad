@@ -3,6 +3,7 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,12 +14,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.gson.Gson;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.IOException;
@@ -35,6 +34,9 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
 
     public View mMeetupView;
     public Button mCreateMeetupButton;
+    private Button mRSVPNavButton;
+    private boolean mGoingToMeetup;
+    private Meetup mSelectedMeetup;
     public GoogleMap mMap;
 
     @Override
@@ -53,7 +55,12 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
         hideButton.setOnClickListener((view -> {
             mMeetupView.setVisibility(View.GONE);
             mCreateMeetupButton.setVisibility(View.VISIBLE);
+            mRSVPNavButton.setText(R.string.im_going);
+            mGoingToMeetup = false;
         }));
+        mRSVPNavButton = findViewById(R.id.button_navigate);
+        mRSVPNavButton.setOnClickListener(this);
+        mGoingToMeetup = false;
 
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
@@ -116,6 +123,15 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             /* Launch dog profile activity */
             Intent intent = new Intent(this, DogOwnerProfileActivity.class);
             startActivity(intent);
+        } else if (view.getId() == R.id.button_navigate) {
+            if (!mGoingToMeetup) {
+                mGoingToMeetup = true;
+                mRSVPNavButton.setText(R.string.get_directions);
+            } else {
+                Uri uri = Util.getMapsActivityUri(mSelectedMeetup.mLocation);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
         }
     }
 
@@ -130,7 +146,6 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             googleMap.addMarker(new MarkerOptions().position(meetup.mLocation)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_map_icon)))
                     .setTag(meetup);
-
         }
 
         googleMap.addMarker(new MarkerOptions().position(API.getCurrentLocation())
@@ -152,6 +167,8 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             mCreateMeetupButton.setVisibility(View.GONE);
 
             //TODO: //get the meetup info from the marker tag and fill in appropraitely
+            mSelectedMeetup = new Meetup();
+            mSelectedMeetup.mLocation = marker.getPosition();
         }
 
         return true;
