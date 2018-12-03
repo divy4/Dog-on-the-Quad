@@ -27,7 +27,9 @@
     <string name="edit_settings">Edit Settings</string>
     <string name="end_meetup">End Meetup</string>
     <string name="end_time">End Time:</string>
+    <string name="get_directions">GET DIRECTIONS</string>
     <string name="high">High</string>
+    <string name="im_going">I\'m Going</string>
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="meetup_in_progress"><u>Meetup In Progress</u></string>
