@@ -3,6 +3,7 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
     public Button mCreateMeetupButton;
     private Button mRSVPNavButton;
     private boolean mGoingToMeetup;
+    private Meetup mSelectedMeetup;
     public GoogleMap mMap;
 
     @Override
@@ -125,6 +127,10 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             if (!mGoingToMeetup) {
                 mGoingToMeetup = true;
                 mRSVPNavButton.setText(R.string.get_directions);
+            } else {
+                Uri uri = Util.getMapsActivityUri(mSelectedMeetup.mLocation);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         }
     }
@@ -140,7 +146,6 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             googleMap.addMarker(new MarkerOptions().position(meetup.mLocation)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_map_icon)))
                     .setTag(meetup);
-
         }
 
         googleMap.addMarker(new MarkerOptions().position(API.getCurrentLocation())
@@ -162,6 +167,8 @@ public class MapActivity extends Activity implements View.OnClickListener, OnMap
             mCreateMeetupButton.setVisibility(View.GONE);
 
             //TODO: //get the meetup info from the marker tag and fill in appropraitely
+            mSelectedMeetup = new Meetup();
+            mSelectedMeetup.mLocation = marker.getPosition();
         }
 
         return true;

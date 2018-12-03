@@ -3,6 +3,7 @@ package cs465.illinois.edu.dogonthequad.DataModels;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,5 +25,15 @@ public class Meetup implements Cloneable {
     public UUID mUser;
     
     public String mPhoto;
+
+    public Meetup() {
+        mState = MeetupState.setupFirstPass;
+        mLocation = new LatLng(0, 0);
+        mSocialLevel = SocialLevel.Low;
+        mEndTime = new Date();
+        mDogs = new ArrayList<>();
+        mUser = UUID.randomUUID();
+        mPhoto = null;
+    }
 }
 
