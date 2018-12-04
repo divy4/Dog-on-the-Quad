@@ -73,17 +73,19 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
                 mEndTimeText.setText(text);
             }
             if (mMeetup.mSocialLevel != null) {
+                String text = "Attendance: ";
                 switch (mMeetup.mSocialLevel) {
                     case Low:
-                        mSocialLevelText.setText(R.string.social_level_low);
+                        text += getResources().getString(R.string.social_level_low);
                         break;
                     case Medium:
-                        mSocialLevelText.setText(R.string.social_level_medium);
+                        text += getResources().getString(R.string.social_level_medium);
                         break;
                     case High:
-                        mSocialLevelText.setText(R.string.social_level_high);
+                        text += getResources().getString(R.string.social_level_high);
                         break;
                 }
+                mSocialLevelText.setText(text);
             }
             if (mMeetup.mDogs != null) {
                 List<String> names = new ArrayList<String>();
