@@ -19,7 +19,7 @@ public class Util {
 
     private static String MAPS_ACTIVITY_FORMAT_STRING = "geo:%f,%f?q=%f,%f";
     private static String DATE_FORMAT = "MM/dd/yyyy";
-    private static String DATE_TIME_FORMAT = "MM/dd/yyyy HH:mm";
+    private static String DATE_TIME_FORMAT = "MM/dd/yyyy hh:mm a";
 
     public static Uri getMapsActivityUri(LatLng location) {
         return Uri.parse(String.format(
