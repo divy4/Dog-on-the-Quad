@@ -12,7 +12,7 @@
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:text="@string/placeholder_profile_name"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_picture"
@@ -25,12 +25,175 @@
         app:civ_border="true"
         app:civ_border_color="@color/colorPrimaryDark" />
 
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/stats_profile"
         android:layout_width="match_parent"
-        android:layout_marginTop="14dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/profile_picture"
-        android:groupIndicator="@null"/>
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stats"
+            android:textSize="24sp"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:text="@string/user_since"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/user_since"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text=""
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:text="@string/meetups_created"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/meetups_created"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text=""
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:text="@string/meetups_attended"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/meetups_attended"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text=""
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:text="@string/dogs_petted"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/dogs_petted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text=""
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:text="@string/people_met"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/people_met"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text=""
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/stats_dogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stats_profile"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/dogs_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dogs_profile"
+            android:textSize="24sp"
+            android:textAlignment="center"/>
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:groupIndicator="@null"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
