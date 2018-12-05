@@ -21,6 +21,8 @@
     <string name="create_meetup_social_level_description">Select how many people you would like to attend your meetup. Although we can\'t guarantee the minimum number people will show up, we\'ll do our best to make sure no more than the maximum will.</string>
     <string name="create_meetup_photo_title"><u>Dog Snapshot</u></string>
     <string name="dogs">Dogs:</string>
+    <string name="dogs_petted">Dogs petted:</string>
+    <string name="dogs_profile">Dogs</string>
     <string name="dog_button_label">🐕</string>
     <string name="edit">Edit</string>
     <string name="edit_location">Edit Location</string>
@@ -29,9 +31,12 @@
     <string name="end_time">End Time:</string>
     <string name="get_directions">GET DIRECTIONS</string>
     <string name="im_going">I\'m Going</string>
+    <string name="meetups_attended">Meetups attended:</string>
+    <string name="meetups_created">Meetups created:</string>
     <string name="meetup_in_progress"><u>Meetup In Progress</u></string>
     <string name="minutes_left">Minutes Left</string>
     <string name="next">Next</string>
+    <string name="people_met">People met:</string>
     <string name="placeholder_num">0</string>
     <string name="return_to_edit">Confirm Change</string>
     <string name="social_level">Social Level:</string>
@@ -42,5 +47,7 @@
     <string name="placeholder_dog_name">Dexter</string>
     <string name="placeholder_dog_breed">Border Collie</string>
     <string name="placeholder_dog_score">10/10</string>
+    <string name="stats">Stats</string>
     <string name="users_visiting">Users Visiting</string>
+    <string name="user_since">User since:</string>
 </resources>
