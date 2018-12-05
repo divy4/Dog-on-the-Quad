@@ -69,7 +69,7 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
         super.onStart();
         if (mMeetup != null) {
             if (mMeetup.mEndTime != null) {
-                String text = "End Time: " + mMeetup.mEndTime.toString();
+                String text = "End Time: " + Util.formatDateTime(mMeetup.mEndTime);
                 mEndTimeText.setText(text);
             }
             if (mMeetup.mSocialLevel != null) {

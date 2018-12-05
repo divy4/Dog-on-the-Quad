@@ -39,7 +39,7 @@ public class DogOwnerProfileActivity extends Activity {
 
         User mUser = API.getCurrentUser();
         TextView view = findViewById(R.id.user_since);
-        view.setText(mUser.mUserSince.toString());
+        view.setText(Util.formatDate(mUser.mUserSince));
         view = findViewById(R.id.meetups_created);
         view.setText(mUser.mMeetupsCreated.toString());
         view = findViewById(R.id.meetups_attended);
