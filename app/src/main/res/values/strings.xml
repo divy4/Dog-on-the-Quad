@@ -15,6 +15,7 @@
     <string name="create_meetup_photo_desc">Try to include landmarks and your dog so that users can easily find you</string>
     <string name="create_meetup_photo_open_camera">Take photo</string>
     <string name="create_meetup_review_title"><u>Confirm Meetup</u></string>
+    <string name="create_meetup_review_desc">Double check that everything looks right for your meetup</string>
     <string name="create_meetup_select_dogs_desc">Select which dogs will be with you at the meetup. This will let everyone else know who will be there.</string>
     <string name="create_meetup_select_dogs_title"><u>Select Dogs</u></string>
     <string name="create_meetup_social_level_title"><u>Attendance</u></string>

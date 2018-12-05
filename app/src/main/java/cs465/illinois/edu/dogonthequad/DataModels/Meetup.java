@@ -28,7 +28,7 @@ public class Meetup implements Cloneable {
 
     public Meetup() {
         mState = MeetupState.setupFirstPass;
-        mLocation = new LatLng(0, 0);
+        mLocation = null;
         mSocialLevel = SocialLevel.Low;
         mEndTime = new Date();
         mDogs = new ArrayList<>();
