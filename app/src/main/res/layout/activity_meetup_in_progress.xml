@@ -25,7 +25,6 @@
             android:id="@+id/meetup_progress_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:text="@string/meetup_in_progress"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -43,7 +42,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#FFFFFF"
                 android:text="@string/placeholder_num"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -52,7 +50,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/minutes_left_num"
-                android:textColor="#FFFFFF"
                 android:text="@string/minutes_left"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -69,7 +66,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#FFFFFF"
                 android:text="@string/placeholder_num"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -78,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/visitors_num"
-                android:textColor="#FFFFFF"
                 android:text="@string/users_visiting"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -95,7 +90,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#2196F3"
                 android:layout_height="50dp"
                 android:text="@string/edit_settings" />
 
@@ -106,7 +100,6 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#2196F3"
                 android:layout_height="50dp"
                 android:text="@string/add_time" />
         </LinearLayout>
@@ -120,7 +113,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:text="@string/end_meetup" />
 
     </LinearLayout>

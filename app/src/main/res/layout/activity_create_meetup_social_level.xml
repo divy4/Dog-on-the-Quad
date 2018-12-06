@@ -5,58 +5,65 @@
     android:layout_height="fill_parent"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_meetup_social_level_title"
-        android:id="@+id/create_meetup_social_level_title"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/topbar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_meetup_social_level_title"
+            android:id="@+id/create_meetup_social_level_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:text="@string/create_meetup_social_level_description"
-        android:layout_below="@id/create_meetup_social_level_title"
-        android:id="@+id/create_meetup_social_level_desc"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_meetup_social_level_description"
+            android:layout_below="@id/create_meetup_social_level_title"
+            android:id="@+id/create_meetup_social_level_desc"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
         android:id="@+id/radio_group"
-        android:layout_below="@id/create_meetup_social_level_desc">
+        android:layout_below="@id/topbar">
+
         <RadioButton
-            android:buttonTint="#FFC107"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#3F51B5"
             android:id="@+id/low_button"
-            android:text="@string/social_level_low"/>
-
-        <RadioButton
-            android:buttonTint="#FFC107"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="#3F51B5"
+            android:buttonTint="#FFC107"
+            android:text="@string/social_level_low" />
+
+        <RadioButton
             android:id="@+id/medium_button"
-            android:text="@string/social_level_medium"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#3F51B5"
+            android:buttonTint="#FFC107"
+            android:text="@string/social_level_medium" />
 
         <RadioButton
             android:buttonTint="#FFC107"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:backgroundTint="#3F51B5"
             android:id="@+id/high_button"
             android:text="@string/social_level_high"/>
@@ -76,7 +83,6 @@
         <Button
             android:id="@+id/back_button"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -95,7 +101,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:id="@+id/meetup_next_button"
             android:text="@string/next"/>
 

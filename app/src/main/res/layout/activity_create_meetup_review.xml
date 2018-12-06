@@ -11,7 +11,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
         android:text="@string/create_meetup_review_title"
         android:id="@+id/create_meetup_review_title"
         android:textSize="20sp"
@@ -22,7 +21,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
         android:text="@string/create_meetup_review_desc"
         android:layout_below="@id/create_meetup_review_title"
         android:id="@+id/create_meetup_review_desc"
@@ -65,7 +63,6 @@
             <TextView
                 android:id="@+id/end_time_text"
                 android:layout_marginLeft="20dp"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -92,7 +89,6 @@
             <TextView
                 android:id="@+id/social_level_text"
                 android:layout_marginLeft="20dp"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -119,7 +115,6 @@
             <TextView
                 android:id="@+id/dogs_text"
                 android:layout_marginLeft="20dp"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -154,7 +149,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/cancel"/>
 
@@ -171,7 +165,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:layout_weight="1"
             android:text="@string/confirm"/>
 
