@@ -8,6 +8,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -40,8 +41,8 @@
 
     <style name="ButtonStyle" parent="@android:style/Widget.Button">
         <item name="android:backgroundTint">@color/colorPrimaryDark</item>
-        <item name="android:background">@drawable/rounded_button_corners</item>
         <item name="android:textSize">17dp</item>
+        <item name="android:layout_margin">19dp</item>
     </style>
 
     <style name="ProgressBarStyle" parent="android:Widget.ProgressBar">
@@ -49,7 +50,7 @@
     </style>
 
     <style name="RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
 

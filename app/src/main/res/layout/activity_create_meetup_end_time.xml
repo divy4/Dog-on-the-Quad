@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/topbar">
+        >
 
         <TextView
+            android:id="@+id/create_meetup_end_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_meetup_end_time_title"
-            android:id="@+id/create_meetup_end_time_title"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:text="@string/create_meetup_end_time_title"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,12 +68,12 @@
             android:id="@+id/meetup_progress_bar"/>
 
         <Button
+            android:id="@+id/meetup_next_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#FFFFFF"
             android:layout_weight="1"
-            android:id="@+id/meetup_next_button"
-            android:text="@string/next"/>
+            android:text="@string/next"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

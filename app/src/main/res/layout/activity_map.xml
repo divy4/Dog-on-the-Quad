@@ -38,14 +38,14 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_picture"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/placeholder_owner_profile"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="#00000000"
+        android:src="@drawable/placeholder_owner_profile"
         app:civ_border="true"
         app:civ_border_color="@color/colorPrimaryDark" />
 
@@ -55,7 +55,8 @@
         android:id="@+id/meetup_view"
         android:visibility="visible"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground">
         <ImageButton
             android:layout_width="64dp"
             android:layout_height="32dp"
