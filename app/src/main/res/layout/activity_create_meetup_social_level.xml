@@ -41,7 +41,7 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#3F51B5"
             android:id="@+id/low_button"
-            android:text="@string/low"/>
+            android:text="@string/social_level_low"/>
 
         <RadioButton
             android:buttonTint="#FFC107"
@@ -50,7 +50,7 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#3F51B5"
             android:id="@+id/medium_button"
-            android:text="@string/medium"/>
+            android:text="@string/social_level_medium"/>
 
         <RadioButton
             android:buttonTint="#FFC107"
@@ -59,7 +59,7 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#3F51B5"
             android:id="@+id/high_button"
-            android:text="@string/high"/>
+            android:text="@string/social_level_high"/>
 
     </RadioGroup>
 

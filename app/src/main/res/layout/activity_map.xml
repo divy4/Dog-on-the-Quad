@@ -98,7 +98,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I'm Going"
+            android:text="@string/im_going"
             android:backgroundTint="#2196F3"
             android:id="@+id/button_navigate"
             android:padding="20dp"

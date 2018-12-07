@@ -95,7 +95,7 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public void onClick(View view) {
         if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
             executeNext();
-        } else if (view.getId() == R.id.back_button) {
+        } else if (view.getId() == R.id.back_button || view.getId() == R.id.cancel_button) {
             executeBack();
         }
     }

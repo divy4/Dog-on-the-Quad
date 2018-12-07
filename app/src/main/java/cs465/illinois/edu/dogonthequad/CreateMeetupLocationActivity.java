@@ -29,7 +29,6 @@ public class CreateMeetupLocationActivity extends CreateMeetupActivity implement
         super.onCreate(savedInstanceState);
         initialize(R.layout.activity_create_meetup_location);
 
-        mMeetup.mLocation = new LatLng(40.107831, -88.227303);
         // Get the SupportMapFragment and request notification
         // when the map is ready to be used.
         MapFragment mapFragment = (MapFragment) getFragmentManager()
@@ -44,13 +43,20 @@ public class CreateMeetupLocationActivity extends CreateMeetupActivity implement
         googleMap.addMarker(new MarkerOptions().position(API.getCurrentLocation())
                 .icon(BitmapDescriptorFactory
                         .fromResource(R.drawable.current_location)));
-        googleMap.addMarker(new MarkerOptions().position(quad)
-                .title(getString(R.string.create_meetup_location_title)).draggable(true));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quad, (float) 18.0));
+
+        Log.d("MEETUPLOCATION", "In on map ready, location=" + mMeetup.mLocation);
+        if(mMeetup.mLocation == null) {
+            mMeetup.mLocation = quad;
+        }
+        googleMap.addMarker(new MarkerOptions().position(mMeetup.mLocation)
+                .title(getString(R.string.create_meetup_location_title)).draggable(true)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_map_icon)));
 
         googleMap.setOnMarkerDragListener(this);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quad, (float) 18.0));
         googleMap.getUiSettings().setZoomGesturesEnabled(false);
         googleMap.getUiSettings().setScrollGesturesEnabled(false);
+
     }
 
 
@@ -67,6 +73,7 @@ public class CreateMeetupLocationActivity extends CreateMeetupActivity implement
     @Override
     public void onMarkerDragEnd(Marker marker) {
         if(marker.getTitle().equals(getString(R.string.create_meetup_location_title))){
+            Log.d("MEETUPLOCATION", "New location" + marker.getPosition());
             mMeetup.mLocation = marker.getPosition();
         }
     }
