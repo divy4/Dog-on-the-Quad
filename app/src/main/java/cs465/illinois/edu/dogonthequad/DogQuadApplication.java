@@ -3,6 +3,8 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.Application;
 import android.util.Log;
 
+import com.beardedhen.androidbootstrap.TypefaceProvider;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -15,6 +17,7 @@ public class DogQuadApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //TypefaceProvider.registerDefaultIconSets();
 
         // Call API.loadData once to load in all presets
         try {

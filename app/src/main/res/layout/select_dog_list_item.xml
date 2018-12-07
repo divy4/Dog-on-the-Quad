@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="left"
-    android:orientation="horizontal">
 
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="#FFFFFF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/dog_list_name"
-        android:text="Hello"/>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<com.mikhaellopez.circularimageview.CircularImageView
+    android:id="@+id/profile_picture"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="8dp"
+    android:layout_centerVertical="true"
+    android:src="@drawable/placeholder_dog_profile"
+    app:civ_border="false"/>
+
+<TextView
+    android:id="@+id/dog_list_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_marginStart="10dp"
+    android:layout_toEndOf="@id/profile_picture"
+    android:text="@string/placeholder_dog_name"
+    android:textSize="20sp" />
 
     <CheckBox
-        android:buttonTint="#FFC107"
+        android:id="@+id/dog_list_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dog_list_checkbox"/>
-
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="260dp"
+        android:layout_toEndOf="@id/profile_picture"
+        android:buttonTint="#FFC107" />
+</RelativeLayout>

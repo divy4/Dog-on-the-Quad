@@ -17,6 +17,8 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -67,6 +69,9 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
                 listItem = LayoutInflater.from(mContext).inflate(R.layout.select_dog_list_item,parent,false);
             TextView text = listItem.findViewById(R.id.dog_list_name);
             text.setText(d.mName);
+
+            CircularImageView circleImageView = listItem.findViewById(R.id.profile_picture);
+            circleImageView.setImageResource(R.drawable.placeholder_dog_profile);
 
             CheckBox box = listItem.findViewById(R.id.dog_list_checkbox);
             box.setTag(d);
