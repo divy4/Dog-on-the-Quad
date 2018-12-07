@@ -149,15 +149,6 @@
         android:layout_alignParentBottom="true"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/cancel_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
-            android:layout_weight="1"
-            android:text="@string/cancel"/>
-
         <ProgressBar
             android:id="@+id/meetup_progress_bar"
             android:layout_width="match_parent"

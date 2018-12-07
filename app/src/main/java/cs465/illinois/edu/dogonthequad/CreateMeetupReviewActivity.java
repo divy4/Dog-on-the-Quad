@@ -139,11 +139,11 @@ public class CreateMeetupReviewActivity extends CreateMeetupActivity implements 
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.cancel_button && mMeetup.mState == MeetupState.setupReview) {
-            confirmCancel();
-        } else {
+        //if (view.getId() == R.id.cancel_button && mMeetup.mState == MeetupState.setupReview) {
+        //    confirmCancel();
+        //} else {
             super.onClick(view);
-        }
+        //}
     }
 
     @Override

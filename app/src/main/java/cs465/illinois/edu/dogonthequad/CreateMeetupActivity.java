@@ -37,7 +37,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public static final int REQUEST_EDIT = 1;
 
     public Meetup mMeetup;
-    private Button mBackButton;
     private Button mNextButton;
 
     /**
@@ -50,14 +49,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
 
         // load meetup from previous activity
         mMeetup = Util.getMeetupFromIntent(getIntent());
-
-        mBackButton = findViewById(R.id.back_button);
-        if (mBackButton == null) {
-            mBackButton = findViewById(R.id.cancel_button);
-        }
-        if (mBackButton != null) {
-            mBackButton.setOnClickListener(this);
-        }
 
         try {
             mNextButton = findViewById(R.id.meetup_next_button);
@@ -95,8 +86,6 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
     public void onClick(View view) {
         if(view.getId() == R.id.meetup_next_button || view.getId() == R.id.confirm_button) {
             executeNext();
-        } else if (view.getId() == R.id.back_button || view.getId() == R.id.cancel_button) {
-            executeBack();
         }
     }
 
