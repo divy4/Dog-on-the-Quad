@@ -12,6 +12,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -132,5 +134,10 @@ public class MeetupInProgressActivity extends Activity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mMeetup.mLocation, 17));
+        googleMap.addMarker(new MarkerOptions()
+                .position(mMeetup.mLocation)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.current_location)));
+        googleMap.getUiSettings().setZoomGesturesEnabled(false);
+        googleMap.getUiSettings().setScrollGesturesEnabled(false);
     }
 }
