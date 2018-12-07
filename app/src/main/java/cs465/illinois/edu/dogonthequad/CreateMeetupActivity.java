@@ -89,6 +89,11 @@ public class CreateMeetupActivity extends Activity implements View.OnClickListen
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        executeBack();
+    }
+
     protected void executeNext() {
         switch (mMeetup.mState) {
             case setupFirstPass:
