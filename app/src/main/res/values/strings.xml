@@ -49,6 +49,6 @@
     <string name="placeholder_dog_breed">Border Collie</string>
     <string name="placeholder_dog_score">10/10</string>
     <string name="stats">Stats</string>
-    <string name="users_visiting">Users Visiting</string>
+    <string name="users_visiting">Users on the way</string>
     <string name="user_since">User since:</string>
 </resources>
