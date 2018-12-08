@@ -57,7 +57,6 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
         ArrayList<Boolean> mIncluded;
         Context mContext;
         Button mNextButton;
-        ColorFilter mNextButtonColorFilter;
 
         public DogListAdapter(@NonNull Context context, int resource, @NonNull List<Dog> objects, Button nextButton) {
             super(context, resource, objects);
@@ -72,7 +71,6 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
             }
             mContext = context;
             mNextButton = nextButton;
-            mNextButtonColorFilter = mNextButton.getBackground().getColorFilter();
             updateButton();
         }
 
