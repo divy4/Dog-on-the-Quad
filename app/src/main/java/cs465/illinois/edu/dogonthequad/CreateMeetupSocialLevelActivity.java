@@ -15,7 +15,18 @@ public class CreateMeetupSocialLevelActivity extends CreateMeetupActivity implem
         RadioGroup rg = findViewById(R.id.radio_group);
         rg.setOnCheckedChangeListener(this);
 
-        rg.check(R.id.low_button);
+        switch(mMeetup.mSocialLevel) {
+            case Low:
+                rg.check(R.id.low_button);
+                break;
+            case Medium:
+                rg.check(R.id.medium_button);
+                break;
+            case High:
+                rg.check(R.id.high_button);
+                break;
+
+        }
     }
 
     @Override
