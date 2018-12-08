@@ -66,11 +66,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
         android:id="@+id/create_meetup_progress_controls"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
 
         <ProgressBar
@@ -83,7 +83,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
             android:backgroundTint="#2196F3"
