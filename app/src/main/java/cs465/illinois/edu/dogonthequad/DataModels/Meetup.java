@@ -31,7 +31,7 @@ public class Meetup implements Cloneable {
         mLocation = null;
         mSocialLevel = SocialLevel.Low;
         mEndTime = new Date();
-        mDogs = new ArrayList<>();
+        mDogs = null;
         mUser = UUID.randomUUID();
         mPhoto = null;
     }
