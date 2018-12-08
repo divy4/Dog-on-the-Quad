@@ -12,11 +12,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import cs465.illinois.edu.dogonthequad.DataModels.API;
 import cs465.illinois.edu.dogonthequad.DataModels.Meetup;
 import cs465.illinois.edu.dogonthequad.DataModels.MeetupState;
 
@@ -101,6 +104,11 @@ public class MeetupInProgressActivity extends Activity implements OnMapReadyCall
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        confirmCancel();
+    }
+
     private void readMeetupFromLastActivity() {
         mMeetup = Util.getMeetupFromIntent(getIntent());
         updateDisplay();
@@ -131,6 +139,14 @@ public class MeetupInProgressActivity extends Activity implements OnMapReadyCall
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mMeetup.mLocation, 17));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(API.getCurrentLocation(), 17));
+        googleMap.addMarker(new MarkerOptions()
+                .position(mMeetup.mLocation)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_map_icon)));
+        googleMap.addMarker(new MarkerOptions()
+                .position(API.getCurrentLocation())
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.current_location)));
+        googleMap.getUiSettings().setZoomGesturesEnabled(false);
+        googleMap.getUiSettings().setScrollGesturesEnabled(false);
     }
 }

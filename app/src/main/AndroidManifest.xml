@@ -22,12 +22,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB-7S3jUfAxUgQQqbwGVkqWBD-Tv1WTRiw" />
 
-        <activity android:name=".MapActivity">
+        <activity android:name=".MapActivity"
+            android:theme="@style/AppThemenobutton">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".CreateMeetupLocationActivity"
@@ -42,7 +44,7 @@
         <activity
             android:name=".CreateMeetupReviewActivity"
             android:label="@string/create_meetup_review_title" />
-        <activity android:name=".CreateMeetupEndTimeActivity" />
+        <activity android:name=".CreateMeetupEndTimeActivity"/>
         <activity android:name=".MeetupInProgressActivity" />
         <activity android:name=".CreateMeetupSocialLevelActivity" />
         <activity android:name=".DogOwnerProfileActivity" />

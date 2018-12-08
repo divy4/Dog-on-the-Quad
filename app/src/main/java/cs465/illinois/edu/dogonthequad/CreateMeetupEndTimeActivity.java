@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -23,16 +24,28 @@ public class CreateMeetupEndTimeActivity extends CreateMeetupActivity implements
         mTimePicker.setOnTimeChangedListener(this);
 
         Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.MINUTE, 30);
+
+        if(mMeetup.mEndTime == null){
+            cal.setTime(new Date());
+            cal.add(Calendar.MINUTE, 30);
+        } else {
+            cal.setTime(mMeetup.mEndTime);
+        }
+
 
         mTimePicker.setHour(cal.get(Calendar.HOUR_OF_DAY));
         mTimePicker.setMinute(cal.get(Calendar.MINUTE));
+
+        handleTimeChange(cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
     }
 
     @Override
     public void onTimeChanged(TimePicker timePicker, int i, int i1) {
 
+        handleTimeChange(i, i1);
+    }
+
+    protected void handleTimeChange(int i, int i1) {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
 

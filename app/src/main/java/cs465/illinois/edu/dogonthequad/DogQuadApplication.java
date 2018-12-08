@@ -15,6 +15,7 @@ public class DogQuadApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //TypefaceProvider.registerDefaultIconSets();
 
         // Call API.loadData once to load in all presets
         try {

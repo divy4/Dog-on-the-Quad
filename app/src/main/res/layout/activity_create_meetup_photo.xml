@@ -6,27 +6,26 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="#083D68"
-    tools:context=".CreateMeetupPhotoActivity">
+    android:background="@drawable/topbar"
+    tools:context=".CreateMeetupPhotoActivity"
+    >
 
     <TextView
+        android:id="@+id/create_meetup_end_time_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:text="@string/create_meetup_photo_title"
-        android:id="@+id/create_meetup_end_time_title"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:layout_weight="0"/>
+        android:layout_weight="0"
+        android:gravity="center"
+        android:text="@string/create_meetup_photo_title"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:id="@+id/create_meetup_photo_desc"
-        android:textColor="#fff"
         android:text="@string/create_meetup_photo_desc"
         android:layout_weight="0"/>
 
@@ -40,37 +39,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_weight="0"
         android:id="@+id/create_meetup_progress_controls"
-        android:gravity="center"
-        android:layout_weight="0">
-
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
-            android:layout_weight="1"
-            android:text="@string/back"/>
-
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+      
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
+            android:padding="5dp"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:id="@+id/meetup_progress_bar"/>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:id="@+id/capture_button"
             android:text="Capture"/>
 
     </LinearLayout>
-
 </LinearLayout>

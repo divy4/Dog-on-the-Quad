@@ -2,7 +2,9 @@ package cs465.illinois.edu.dogonthequad;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import cs465.illinois.edu.dogonthequad.DataModels.API;
 import cs465.illinois.edu.dogonthequad.DataModels.Dog;
+import cs465.illinois.edu.dogonthequad.DataModels.User;
 
 public class DogOwnerProfileActivity extends Activity {
 
@@ -33,6 +36,18 @@ public class DogOwnerProfileActivity extends Activity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+
+        User mUser = API.getCurrentUser();
+        TextView view = findViewById(R.id.user_since);
+        view.setText(Util.formatDate(mUser.mUserSince));
+        view = findViewById(R.id.meetups_created);
+        view.setText(mUser.mMeetupsCreated.toString());
+        view = findViewById(R.id.meetups_attended);
+        view.setText(mUser.mMeetupsAttended.toString());
+        view = findViewById(R.id.dogs_petted);
+        view.setText(mUser.mDogsPetted.toString());
+        view = findViewById(R.id.people_met);
+        view.setText(mUser.mPeopleMet.toString());
     }
 
     private void prepareListData() {
