@@ -3,8 +3,6 @@ package cs465.illinois.edu.dogonthequad;
 import android.app.Application;
 import android.util.Log;
 
-import com.beardedhen.androidbootstrap.TypefaceProvider;
-
 import org.json.JSONException;
 
 import java.io.IOException;

@@ -104,6 +104,11 @@ public class MeetupInProgressActivity extends Activity implements OnMapReadyCall
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        confirmCancel();
+    }
+
     private void readMeetupFromLastActivity() {
         mMeetup = Util.getMeetupFromIntent(getIntent());
         updateDisplay();
