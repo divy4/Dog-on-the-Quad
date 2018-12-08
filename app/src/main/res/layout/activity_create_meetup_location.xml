@@ -4,26 +4,34 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_meetup_location_title"
-        android:textColor="#FFFFFF"
-        android:id="@+id/create_meetup_location_title"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:text="@string/create_meetup_location_desc"
-        android:layout_below="@id/create_meetup_location_title"
-        android:id="@+id/create_meetup_location_desc"
-        android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/topbar">
+
+        <TextView
+            android:id="@+id/create_meetup_location_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/create_meetup_location_title"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_meetup_location_desc"
+            android:layout_below="@id/create_meetup_location_title"
+            android:id="@+id/create_meetup_location_desc"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -32,7 +40,7 @@
     android:name="com.google.android.gms.maps.MapFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@id/create_meetup_location_desc"
+    android:layout_below="@id/topbar"
     android:layout_above="@id/create_meetup_progress_controls"
     class="com.google.android.gms.maps.MapFragment" />
 
@@ -55,11 +63,10 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/meetup_next_button"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
             android:text="@string/next"/>
 
     </LinearLayout>

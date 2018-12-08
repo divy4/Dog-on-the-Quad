@@ -1,11 +1,13 @@
 package cs465.illinois.edu.dogonthequad;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +49,15 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
         List<Dog> mDogs;
         Context mContext;
         Button mNextButton;
+        ColorFilter mNextButtonColorFilter;
 
         public DogListAdapter(@NonNull Context context, int resource, @NonNull List<Dog> objects, Button nextButton) {
             super(context, resource, objects);
             mDogs = objects;
             mContext = context;
             mNextButton = nextButton;
+            mNextButtonColorFilter = mNextButton.getBackground().getColorFilter();
+            updateButton();
         }
 
         @NonNull
@@ -62,6 +69,9 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
                 listItem = LayoutInflater.from(mContext).inflate(R.layout.select_dog_list_item,parent,false);
             TextView text = listItem.findViewById(R.id.dog_list_name);
             text.setText(d.mName);
+
+            CircularImageView circleImageView = listItem.findViewById(R.id.profile_picture);
+            circleImageView.setImageResource(R.drawable.placeholder_dog_profile);
 
             CheckBox box = listItem.findViewById(R.id.dog_list_checkbox);
             box.setTag(d);
@@ -78,8 +88,20 @@ public class CreateMeetupSelectDogsActivity extends CreateMeetupActivity {
                 } else {
                     mMeetup.mDogs.remove(((Dog) box.getTag()).mId);
                 }
-                mNextButton.setEnabled(mMeetup.mDogs.size() > 0);
+                updateButton();
             }
+        }
+
+        public void updateButton() {
+            mNextButton.setEnabled(mMeetup.mDogs.size() > 0);
+            if (mMeetup.mDogs.size() == 0) {
+                mNextButton.setEnabled(false);
+                mNextButton.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            } else {
+                mNextButton.setEnabled(true);
+                mNextButton.getBackground().setColorFilter(mNextButtonColorFilter);
+            }
+
         }
     }
 }
